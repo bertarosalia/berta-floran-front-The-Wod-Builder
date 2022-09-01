@@ -3,7 +3,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const inititialStateExercises: IExercise[] = [];
 
-const exercisesSlice = createSlice({
+export const exercisesSlice = createSlice({
   name: "exercises",
   initialState: inititialStateExercises,
   reducers: {
@@ -13,6 +13,6 @@ const exercisesSlice = createSlice({
 });
 
 export const { loadAllExercises } = exercisesSlice.actions;
-const exercisesReducer = exercisesSlice.reducer;
+export const exercisesReducer = exercisesSlice.reducer;
 
 export default exercisesReducer;
