@@ -1,7 +1,14 @@
-import "./App.css";
+import AppStyled from "./AppStyled";
+import CardExercises from "./components/CardExercises/CardExercises";
 
-const App = () => {
-  return <div className="App"></div>;
+const App = (): JSX.Element => {
+  return (
+    <>
+      <AppStyled>
+        <CardExercises />
+      </AppStyled>
+    </>
+  );
 };
 
 export default App;
