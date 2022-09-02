@@ -1,6 +1,18 @@
 import CardExercisesStyled from "./CardExercisesStyled";
 
-const CardExercises = (): JSX.Element => {
+interface CardExercisesProps {
+  body: string;
+  name: string;
+  description: string;
+  image: string;
+}
+
+const CardExercises = ({
+  body,
+  name,
+  description,
+  image,
+}: CardExercisesProps): JSX.Element => {
   return (
     <>
       <CardExercisesStyled>
@@ -8,13 +20,13 @@ const CardExercises = (): JSX.Element => {
           width={"180px"}
           height={"200px"}
           className="card__image"
-          src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/deadlift-workout-for-back-royalty-free-image-527680187-1553003041.jpg"
-          alt="deadlift"
+          src={image}
+          alt={name}
         />
         <ul className="card__info">
-          <li className="info__data">Name: </li>
-          <li className="info__data">Body: </li>
-          <li className="info__data">Description: </li>
+          <li className="info__data">Name: {name}</li>
+          <li className="info__data">Body: {body}</li>
+          <li className="info__data">Description: {description}</li>
         </ul>
       </CardExercisesStyled>
     </>
