@@ -1,7 +1,9 @@
-import exercisesReducer, { loadAllExercises } from "./exercisesSlice";
+import exercisesReducer, {
+  loadAllExercisesactionCreator,
+} from "./exercisesSlice";
 import IExercise from "../interfaces";
 
-describe("Given an exercises slice function", () => {
+describe("Given an exercises reducer function", () => {
   const inititialStateExercises: IExercise[] = [];
 
   describe("When is instantiated with an unknown action and the wrong state", () => {
@@ -9,9 +11,12 @@ describe("Given an exercises slice function", () => {
       const wrongState = undefined;
       const unknownAction = { type: "" };
 
-      const returnExercises = exercisesReducer(wrongState, unknownAction);
+      const exercisesReducerReturn = exercisesReducer(
+        wrongState,
+        unknownAction
+      );
 
-      expect(returnExercises).toEqual(inititialStateExercises);
+      expect(exercisesReducerReturn).toEqual(inititialStateExercises);
     });
     describe("When instatiated with a loadAllExercises action and a new exercise state", () => {
       test("Then it should return the new state with the exercises", () => {
@@ -21,7 +26,7 @@ describe("Given an exercises slice function", () => {
 
         const returnFromReducer = exercisesReducer(
           inititialStateExercises,
-          loadAllExercises(newExercises)
+          loadAllExercisesactionCreator(newExercises)
         );
 
         expect(returnFromReducer).toEqual(newExercises);
