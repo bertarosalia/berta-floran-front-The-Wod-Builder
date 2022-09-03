@@ -3,12 +3,13 @@ import styledMainTheme from "../../styledMainTheme";
 const CardExercisesStyled = styled.div`
   width: 700px;
   height: 300px;
-  border: 1px solid black;
+
   display: flex;
   align-items: center;
   border-radius: 20px;
   background-color: ${styledMainTheme.background};
   margin: 20px;
+  padding-right: 20px;
 
   .card__image {
     object-fit: cover;
@@ -29,7 +30,8 @@ const CardExercisesStyled = styled.div`
 
   .info__data {
     padding-left: 24px;
-    margin-top: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 `;
 
