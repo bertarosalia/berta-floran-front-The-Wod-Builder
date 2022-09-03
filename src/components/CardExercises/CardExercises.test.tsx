@@ -9,6 +9,7 @@ describe("Given a Exercises Card component", () => {
       name: "",
       description: "",
       image: "url",
+      id: "",
     };
     test("It should show an image with the exercise", () => {
       render(
@@ -17,6 +18,7 @@ describe("Given a Exercises Card component", () => {
           body={testExercise.body}
           description={testExercise.description}
           image={testExercise.image}
+          id={testExercise.id}
         ></CardExercises>
       );
 

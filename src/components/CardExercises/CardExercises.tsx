@@ -5,6 +5,7 @@ interface CardExercisesProps {
   name: string;
   description: string;
   image: string;
+  id: string;
 }
 
 const CardExercises = ({
@@ -12,6 +13,7 @@ const CardExercises = ({
   name,
   description,
   image,
+  id,
 }: CardExercisesProps): JSX.Element => {
   return (
     <>
@@ -23,7 +25,7 @@ const CardExercises = ({
           src={image}
           alt={name}
         />
-        <ul className="card__info">
+        <ul className="card__info" key={id}>
           <li className="info__data">Name: {name}</li>
           <li className="info__data">Body: {body}</li>
           <li className="info__data">Description: {description}</li>
