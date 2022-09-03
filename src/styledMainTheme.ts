@@ -1,4 +1,4 @@
-export const colors = {
+const styledMainTheme = {
   background: "#2F3E44",
   footer: "#C7D8D9",
   inputs: "#DFDADA",
@@ -6,4 +6,7 @@ export const colors = {
   buttonEdit: "#568281",
   buttonDelete: "#DED7C9",
   white: "#FFF",
+  primaryFont: "'jura', sans-serif",
 };
+
+export default styledMainTheme;

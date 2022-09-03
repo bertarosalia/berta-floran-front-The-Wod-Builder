@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { colors } from "./theme";
+import styledMainTheme from "./styledMainTheme";
 
 const AppStyled = styled.div`
-  background-color: ${colors.background};
+  background-color: ${styledMainTheme.background};
   display: flex;
   justify-content: center;
 `;
