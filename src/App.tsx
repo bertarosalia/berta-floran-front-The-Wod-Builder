@@ -1,17 +1,12 @@
-import { useEffect } from "react";
 import AppStyled from "./AppStyled";
-import useApi from "./hooks/useApi";
+import ListExercises from "./components/ListExercises/ListExercises";
 
 const App = (): JSX.Element => {
-  const { getAllExercises } = useApi();
-
-  useEffect(() => {
-    getAllExercises();
-  });
-
   return (
     <>
-      <AppStyled></AppStyled>
+      <AppStyled>
+        <ListExercises />
+      </AppStyled>
     </>
   );
 };
