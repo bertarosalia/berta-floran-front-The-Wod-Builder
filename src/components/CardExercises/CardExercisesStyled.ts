@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors } from "../../theme";
+import styledMainTheme from "../../styledMainTheme";
 const CardExercisesStyled = styled.div`
   width: 700px;
   height: 300px;
@@ -7,7 +7,7 @@ const CardExercisesStyled = styled.div`
   display: flex;
   align-items: center;
   border-radius: 20px;
-  background-color: ${colors.background};
+  background-color: ${styledMainTheme.background};
   margin: 20px;
 
   .card__image {
@@ -24,7 +24,7 @@ const CardExercisesStyled = styled.div`
     list-style: none;
     margin: 0;
     padding: 0;
-    color: ${colors.white};
+    color: ${styledMainTheme.white};
   }
 
   .info__data {
