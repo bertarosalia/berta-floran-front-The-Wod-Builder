@@ -21,7 +21,7 @@ describe("Given an exercises reducer function", () => {
     describe("When instatiated with a loadAllExercises action and a new exercise state", () => {
       test("Then it should return the new state with the exercises", () => {
         const newExercises: IExercise[] = [
-          { body: "", name: "", description: "", image: "" },
+          { body: "", name: "", description: "", image: "", id: "" },
         ];
 
         const returnFromReducer = exercisesReducer(

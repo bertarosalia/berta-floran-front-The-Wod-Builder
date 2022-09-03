@@ -19,6 +19,7 @@ describe("Given a useApi hook", () => {
             name: "",
             description: "",
             image: "",
+            id: "",
           },
         ],
       };
