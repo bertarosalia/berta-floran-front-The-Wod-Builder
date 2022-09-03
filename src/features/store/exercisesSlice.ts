@@ -7,12 +7,14 @@ export const exercisesSlice = createSlice({
   name: "exercises",
   initialState: inititialStateExercises,
   reducers: {
-    loadAllExercises: (state, action: PayloadAction<IExercise[]>) =>
-      action.payload,
+    loadAllExercises: (state, action: PayloadAction<IExercise[]>) => [
+      ...action.payload,
+    ],
   },
 });
 
-export const { loadAllExercises } = exercisesSlice.actions;
+export const { loadAllExercises: loadAllExercisesactionCreator } =
+  exercisesSlice.actions;
 export const exercisesReducer = exercisesSlice.reducer;
 
 export default exercisesReducer;
