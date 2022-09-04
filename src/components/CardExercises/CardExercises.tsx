@@ -30,6 +30,20 @@ const CardExercises = ({
           <li className="info__data">Body: {body}</li>
           <li className="info__data">Description: {description}</li>
         </ul>
+        <div className="card-button">
+          <input
+            type="button"
+            className="card-button__edit"
+            value="EDIT"
+            disabled
+          />
+          <input
+            type="button"
+            className="card-button__delete"
+            value="DELETE"
+            disabled
+          />
+        </div>
       </CardExercisesStyled>
     </>
   );
