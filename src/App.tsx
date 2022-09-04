@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Navigation from "./components/Navigation/Navigation";
-import ListExercisesPage from "./pages/ListExercisesPage.tsx/ListExercisePage";
+import ListExercisesPage from "./pages/ListExercisesPage/ListExercisePage";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         {/* <Route path="*" element={<NotFoundPage />} /> */}
         <Route path="/" element={<ListExercisesPage />} />
         <Route path="/exercises" element={<ListExercisesPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
   );
