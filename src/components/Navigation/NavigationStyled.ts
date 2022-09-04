@@ -2,6 +2,12 @@ import styledMainTheme from "../../styledMainTheme";
 import styled from "styled-components";
 
 export const NavigationStyled = styled.div`
+  .logo {
+    display: flex;
+    flex-direction: row;
+    margin-right: 220px;
+    padding-left: 30px;
+  }
   .nav-links {
     text-decoration: none;
     color: ${styledMainTheme.black};
