@@ -6,6 +6,7 @@ const styledMainTheme = {
   buttonEdit: "#568281",
   buttonDelete: "#DED7C9",
   white: "#FFF",
+  black: "#000",
   primaryFont: "'jura', sans-serif",
 };
 
