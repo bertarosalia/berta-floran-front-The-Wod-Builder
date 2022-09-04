@@ -4,7 +4,7 @@ import styledMainTheme from "../../styledMainTheme";
 export const ButtonStyled = styled.div`
   display: flex;
   flex-direction: row-reverse;
-  margin-right: 110px;
+  margin-right: 90px;
   position: relative;
 
   .button-filter {
