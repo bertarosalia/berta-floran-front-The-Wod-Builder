@@ -1,12 +1,9 @@
-import AppStyled from "./AppStyled";
 import ListExercises from "./components/ListExercises/ListExercises";
 
-const App = (): JSX.Element => {
+const App = () => {
   return (
     <>
-      <AppStyled>
-        <ListExercises />
-      </AppStyled>
+      <ListExercises />
     </>
   );
 };
