@@ -1,9 +1,8 @@
 import styled from "styled-components";
 import styledMainTheme from "../../styledMainTheme";
 const CardExercisesStyled = styled.div`
-  width: 700px;
+  width: 800px;
   height: 300px;
-
   display: flex;
   align-items: center;
   border-radius: 20px;
@@ -13,6 +12,8 @@ const CardExercisesStyled = styled.div`
 
   .card__image {
     object-fit: cover;
+    width: 200px;
+    height: 200px;
     border-radius: 10px;
     margin-left: 30px;
   }
@@ -30,8 +31,36 @@ const CardExercisesStyled = styled.div`
 
   .info__data {
     padding-left: 24px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  .card-button__edit {
+    border-radius: 20px;
+    margin: 40px 20px;
+
+    height: 40px;
+    width: 120px;
+    padding: 5px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+    color: ${styledMainTheme.white};
+    background-color: ${styledMainTheme.buttonEdit};
+  }
+
+  .card-button__delete {
+    border-radius: 20px;
+    margin: 40px 20px;
+    height: 40px;
+    width: 120px;
+    padding: 5px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+
+    color: ${styledMainTheme.black};
+    background-color: ${styledMainTheme.buttonDelete};
   }
 `;
 
