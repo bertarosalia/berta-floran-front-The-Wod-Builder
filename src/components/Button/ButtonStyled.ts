@@ -4,8 +4,7 @@ import styledMainTheme from "../../styledMainTheme";
 export const ButtonStyled = styled.div`
   display: flex;
   flex-direction: row-reverse;
-  margin-right: 90px;
-  position: relative;
+  margin-right: 175px;
 
   .button-filter {
     background-color: ${styledMainTheme.buttonBig};
