@@ -12,16 +12,26 @@ const Navigation = (): JSX.Element => {
           width="218"
           src="img/logoNegro.png"
         ></img>
-        <NavLink to="/exercises" className={"nav-links"}>
-          Exercises
-        </NavLink>
-        <NavLink to="/register" className={"nav-links"}>
-          Register
-        </NavLink>
-        <NavLink to="/login" className={"nav-links"}>
-          Login
-        </NavLink>
-        <NavLink to="*"></NavLink>
+        <ul className="list-exercises-pages">
+          <li className="list-exercises-pages_item">
+            <NavLink to="/exercises" className={"nav-links"}>
+              Exercises
+            </NavLink>
+          </li>
+          <li className="list-exercises-pages_item">
+            <NavLink to="/register" className={"nav-links"}>
+              Register
+            </NavLink>
+          </li>
+          <li className="list-exercises-pages_item">
+            <NavLink to="/login" className={"nav-links"}>
+              Login
+            </NavLink>
+          </li>
+          <li className="list-exercises-pages_item">
+            <NavLink to="*"></NavLink>
+          </li>
+        </ul>
       </nav>
     </NavigationStyled>
   );
