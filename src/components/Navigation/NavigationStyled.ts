@@ -17,10 +17,16 @@ export const NavigationStyled = styled.div`
     flex-direction: row;
     list-style: none;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
   }
 
   .logo__image {
     margin-left: 30px;
+  }
+
+  .list-exercises-pages {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
   }
 `;
