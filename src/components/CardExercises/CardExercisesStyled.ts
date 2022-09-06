@@ -38,7 +38,6 @@ const CardExercisesStyled = styled.div`
   .card-button__edit {
     border-radius: 20px;
     margin: 40px 20px;
-
     height: 40px;
     width: 120px;
     padding: 5px;
@@ -47,6 +46,7 @@ const CardExercisesStyled = styled.div`
     font-size: 15px;
     color: ${styledMainTheme.white};
     background-color: ${styledMainTheme.buttonEdit};
+    cursor: pointer;
   }
 
   .card-button__delete {
@@ -58,9 +58,9 @@ const CardExercisesStyled = styled.div`
     text-align: center;
     font-weight: bold;
     font-size: 15px;
-
     color: ${styledMainTheme.black};
     background-color: ${styledMainTheme.buttonDelete};
+    cursor: pointer;
   }
 `;
 
