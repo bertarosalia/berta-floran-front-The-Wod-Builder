@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../app/store";
 import useApi from "../../hooks/useApi";
-import Button from "../Button/Button";
 import CardExercises from "../CardExercises/CardExercises";
 import ListExercisesStyled from "./ListExercisesStyled";
 
@@ -18,12 +17,7 @@ const ListExercises = (): JSX.Element => {
     <>
       <ListExercisesStyled>
         <h1 className="exercises-list__title">Exercises</h1>
-        <Button
-          buttonText="FILTER"
-          classNameButton="button-filter"
-          actionOnClick={() => {}}
-          type="button"
-        />
+
         <ul className="exercises-list">
           {exercises.map((exercise) => (
             <li className="exercises-list__item" key={exercise.id}>
