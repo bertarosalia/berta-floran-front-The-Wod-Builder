@@ -6,7 +6,7 @@ import ListExercisesPage from "./ListExercisePage";
 
 describe("Given a list exercises page", () => {
   describe("When it´s rendered", () => {
-    test("It should show a button with 'Exercises' inside", () => {
+    test("It should show a button with text 'Exercises' inside", () => {
       const expectedText = "Exercises";
 
       render(
