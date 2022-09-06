@@ -6,11 +6,9 @@ describe("Given a not found page component", () => {
     test("Then it should show a image inside", () => {
       render(<NotFoundPage />);
 
-      const expectedImage = screen.getByRole("img", {
-        name: "Not Found Error 404",
-      });
+      const expectedTitle = screen.getByText("cansadoNotFoundPeque");
 
-      expect(expectedImage).toBeInTheDocument();
+      expect(expectedTitle).toBeInTheDocument();
     });
   });
 });
