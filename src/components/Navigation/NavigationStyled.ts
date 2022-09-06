@@ -2,6 +2,8 @@ import styledMainTheme from "../../styledMainTheme";
 import styled from "styled-components";
 
 export const NavigationStyled = styled.div`
+  background-color: ${styledMainTheme.navigation};
+
   .nav-links {
     text-decoration: none;
     color: ${styledMainTheme.black};
@@ -11,7 +13,6 @@ export const NavigationStyled = styled.div`
   }
 
   .navigation-exercises {
-    background-color: ${styledMainTheme.navigation};
     height: 110px;
     display: flex;
     flex-direction: row;
@@ -22,6 +23,7 @@ export const NavigationStyled = styled.div`
 
   .logo__image {
     margin-left: 30px;
+    margin-top: 18px;
   }
 
   .list-exercises-pages {
