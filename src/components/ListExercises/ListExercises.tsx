@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../app/store";
 import useApi from "../../hooks/useApi";
-import Button from "../Button/Button";
 import CardExercises from "../CardExercises/CardExercises";
 import ListExercisesStyled from "./ListExercisesStyled";
 
