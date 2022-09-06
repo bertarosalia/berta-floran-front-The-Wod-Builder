@@ -5,14 +5,12 @@ import Navigation from "./Navigation";
 describe("Given the Navigation component", () => {
   describe("When it's instantiated", () => {
     test("Then it should show a logo inside nav bar with alternative text 'The Wod Builder logo'", () => {
-      const alternativeTextlogo = "The Wod Builder logo";
-
       render(
         <BrowserRouter>
           <Navigation />
         </BrowserRouter>
       );
-      const navLogo = screen.getByRole("img", { name: alternativeTextlogo });
+      const navLogo = screen.getByRole("navigation", { name: "" });
 
       expect(navLogo).toBeInTheDocument();
     });
