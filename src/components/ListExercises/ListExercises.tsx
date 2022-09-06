@@ -18,12 +18,7 @@ const ListExercises = (): JSX.Element => {
     <>
       <ListExercisesStyled>
         <h1 className="exercises-list__title">Exercises</h1>
-        <Button
-          buttonText="FILTER"
-          classNameButton="button-filter"
-          actionOnClick={() => {}}
-          type="button"
-        />
+
         <ul className="exercises-list">
           {exercises.map((exercise) => (
             <li className="exercises-list__item" key={exercise.id}>
