@@ -35,41 +35,43 @@ const CardExercisesStyled = styled.div`
     margin-bottom: 5px;
   }
 
-  .card-button__edit {
-    border-radius: 20px;
-    margin: 40px 20px;
-    height: 40px;
-    width: 120px;
-    padding: 5px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 15px;
-    color: ${styledMainTheme.white};
-    background-color: ${styledMainTheme.buttonEdit};
-    cursor: pointer;
+  .card-button {
+    &__edit {
+      border-radius: 20px;
+      margin: 40px 20px;
+      height: 40px;
+      width: 120px;
+      padding: 5px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 15px;
+      cursor: pointer;
+      color: ${styledMainTheme.white};
+      background-color: ${styledMainTheme.buttonEdit};
 
-    &:hover {
-      background-color: inherit;
-      font-size: 18px;
+      &:hover {
+        background-color: inherit;
+        font-size: 18px;
+      }
     }
-  }
 
-  .card-button__delete {
-    border-radius: 20px;
-    margin: 40px 20px;
-    height: 40px;
-    width: 120px;
-    padding: 5px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 15px;
-    color: ${styledMainTheme.black};
-    background-color: ${styledMainTheme.buttonDelete};
-    cursor: pointer;
+    &__delete {
+      border-radius: 20px;
+      margin: 40px 20px;
+      height: 40px;
+      width: 120px;
+      padding: 5px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 15px;
+      color: ${styledMainTheme.black};
+      background-color: ${styledMainTheme.buttonDelete};
+      cursor: pointer;
 
-    &:hover {
-      background-color: inherit;
-      font-size: 18px;
+      &:hover {
+        background-color: inherit;
+        font-size: 18px;
+      }
     }
   }
 `;
