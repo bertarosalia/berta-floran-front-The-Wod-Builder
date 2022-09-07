@@ -1,5 +1,5 @@
 import { render, renderHook, screen, waitFor } from "@testing-library/react";
-import useApi from "../../hooks/useApi";
+import useExercises from "../../hooks/useExercises";
 import Wrapper from "../../utils/Wrapper";
 import ListExercises from "./ListExercises";
 
@@ -29,7 +29,7 @@ describe("Given a exercises list component", () => {
         result: {
           current: { getAllExercises },
         },
-      } = renderHook(useApi, { wrapper: Wrapper });
+      } = renderHook(useExercises, { wrapper: Wrapper });
 
       await waitFor(() => {
         getAllExercises();
