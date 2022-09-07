@@ -17,5 +17,11 @@ export const ButtonStyled = styled.div`
     text-align: center;
     border: none;
     outline: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: inherit;
+      font-size: 18px;
+    }
   }
 `;
