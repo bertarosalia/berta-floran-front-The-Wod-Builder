@@ -10,10 +10,8 @@ export const exercisesSlice = createSlice({
     loadAllExercises: (_state, action: PayloadAction<IExercise[]>) => [
       ...action.payload,
     ],
-    deleteExercise: (inititialStateExercises, action: PayloadAction<string>) =>
-      inititialStateExercises.filter(
-        (exercise) => exercise.id !== action.payload
-      ),
+    deleteExercise: (exercises, action: PayloadAction<string>) =>
+      exercises.filter((exercise) => exercise.id !== action.payload),
   },
 });
 export const exercisesReducer = exercisesSlice.reducer;
