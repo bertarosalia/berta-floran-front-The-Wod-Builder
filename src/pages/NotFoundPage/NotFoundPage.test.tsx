@@ -6,7 +6,7 @@ describe("Given a not found page component", () => {
     test("Then it should show a text 'cansadoNotFoundPeque' as name of the image inside", () => {
       render(<NotFoundPage />);
 
-      const expectedTitle = screen.getByText("cansadoNotFoundPeque");
+      const expectedTitle = screen.getByText("Page Not Found 404");
 
       expect(expectedTitle).toBeInTheDocument();
     });
