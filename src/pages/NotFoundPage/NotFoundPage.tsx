@@ -8,7 +8,7 @@ const NotFoundPage = () => {
         viewBox="0 0 646.77 507.7"
         className="logo-not-found"
       >
-        <title>cansadoNotFoundPeque</title>
+        <title>Page Not Found 404</title>
         <text
           transform="translate(393.44 256.23)"
           font-size="50"
