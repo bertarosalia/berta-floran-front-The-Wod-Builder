@@ -7,14 +7,21 @@ export const exercisesSlice = createSlice({
   name: "exercises",
   initialState: inititialStateExercises,
   reducers: {
-    loadAllExercises: (state, action: PayloadAction<IExercise[]>) => [
+    loadAllExercises: (_state, action: PayloadAction<IExercise[]>) => [
       ...action.payload,
     ],
+    deleteExercise: (inititialStateExercises, action: PayloadAction<string>) =>
+      inititialStateExercises.filter(
+        (exercise) => exercise.id !== action.payload
+      ),
   },
 });
+export const exercisesReducer = exercisesSlice.reducer;
 
 export const { loadAllExercises: loadAllExercisesactionCreator } =
   exercisesSlice.actions;
-export const exercisesReducer = exercisesSlice.reducer;
+
+export const { deleteExercise: deleteExerciseActionCreator } =
+  exercisesSlice.actions;
 
 export default exercisesReducer;

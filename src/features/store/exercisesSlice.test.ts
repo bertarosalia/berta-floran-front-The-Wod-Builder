@@ -1,4 +1,6 @@
 import exercisesReducer, {
+  deleteExerciseActionCreator,
+  exercisesSlice,
   loadAllExercisesactionCreator,
 } from "./exercisesSlice";
 import IExercise from "../interfaces";
@@ -31,6 +33,49 @@ describe("Given an exercises reducer function", () => {
 
         expect(returnFromReducer).toEqual(newExercises);
       });
+    });
+  });
+  describe("When call with a deleteExercise reducer as argument", () => {
+    test("Then it should return a list of exercises without the exercise payload", () => {
+      const exercisesBefore = [
+        {
+          id: "1",
+          body: "legs",
+          name: "squat",
+          description: "",
+          image: "http://",
+        },
+        {
+          id: "2",
+          body: "ABS",
+          name: "push ups",
+          description: "",
+          image: "http://",
+        },
+      ];
+
+      const exerciseAfterDeleted = [
+        {
+          id: "2",
+          body: "ABS",
+          name: "push ups",
+          description: "",
+          image: "http://",
+        },
+      ];
+
+      const exerciseDeleted = {
+        id: "1",
+        body: "legs",
+        name: "squat",
+        description: "",
+        image: "http://",
+      };
+
+      const action = deleteExerciseActionCreator(exerciseDeleted.id);
+      const result = exercisesReducer(exercisesBefore, action);
+
+      expect(result).toStrictEqual(exerciseAfterDeleted);
     });
   });
 });
