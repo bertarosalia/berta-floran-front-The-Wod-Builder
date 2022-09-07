@@ -1,5 +1,5 @@
 import CardExercisesStyled from "./CardExercisesStyled";
-
+import useExercises from "../../hooks/useExercises";
 interface CardExercisesProps {
   body: string;
   name: string;
@@ -15,6 +15,12 @@ const CardExercises = ({
   image,
   id,
 }: CardExercisesProps): JSX.Element => {
+  const { deleteExercise } = useExercises();
+
+  const exerciseDelete = () => {
+    deleteExercise(id);
+  };
+
   return (
     <>
       <CardExercisesStyled>
@@ -31,17 +37,13 @@ const CardExercises = ({
           <li className="info__data">Description: {description}</li>
         </ul>
         <div className="card-button">
-          <input
-            type="button"
-            className="card-button__edit"
-            value="EDIT"
-            disabled
-          />
+          <input type="button" className="card-button__edit" value="EDIT" />
           <input
             type="button"
             className="card-button__delete"
+            data-testid="icon-trash"
             value="DELETE"
-            disabled
+            onClick={exerciseDelete}
           />
         </div>
       </CardExercisesStyled>
