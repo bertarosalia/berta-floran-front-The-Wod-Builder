@@ -47,6 +47,11 @@ const CardExercisesStyled = styled.div`
     color: ${styledMainTheme.white};
     background-color: ${styledMainTheme.buttonEdit};
     cursor: pointer;
+
+    &:hover {
+      background-color: inherit;
+      font-size: 18px;
+    }
   }
 
   .card-button__delete {
@@ -61,6 +66,11 @@ const CardExercisesStyled = styled.div`
     color: ${styledMainTheme.black};
     background-color: ${styledMainTheme.buttonDelete};
     cursor: pointer;
+
+    &:hover {
+      background-color: inherit;
+      font-size: 18px;
+    }
   }
 `;
 
