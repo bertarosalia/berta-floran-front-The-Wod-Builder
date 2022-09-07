@@ -1,14 +1,13 @@
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../../app/hooks";
 import { RootState } from "../../app/store";
-import useApi from "../../hooks/useApi";
+import useExercises from "../../hooks/useExercises";
 import CardExercises from "../CardExercises/CardExercises";
 import ListExercisesStyled from "./ListExercisesStyled";
 
 const ListExercises = (): JSX.Element => {
-  const { getAllExercises } = useApi();
-  const exercises = useSelector((state: RootState) => state.exercises);
-
+  const { getAllExercises } = useExercises();
+  const exercises = useAppSelector((state: RootState) => state.exercises);
   useEffect(() => {
     getAllExercises();
   }, [getAllExercises]);
