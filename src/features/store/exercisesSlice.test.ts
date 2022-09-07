@@ -1,6 +1,5 @@
 import exercisesReducer, {
   deleteExerciseActionCreator,
-  exercisesSlice,
   loadAllExercisesactionCreator,
 } from "./exercisesSlice";
 import IExercise from "../interfaces";
