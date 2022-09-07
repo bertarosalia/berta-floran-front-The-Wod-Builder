@@ -51,7 +51,7 @@ const CardExercisesStyled = styled.div`
 
       &:hover {
         background-color: inherit;
-        font-size: 18px;
+        font-size: 16px;
       }
     }
 
@@ -70,7 +70,7 @@ const CardExercisesStyled = styled.div`
 
       &:hover {
         background-color: inherit;
-        font-size: 18px;
+        font-size: 16px;
       }
     }
   }
