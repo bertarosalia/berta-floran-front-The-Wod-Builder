@@ -16,20 +16,15 @@ const useExercises = () => {
       const data = await response.json();
       const { exercises } = data;
       dispatch(loadAllExercisesactionCreator(exercises));
-    } catch (error) {
-      throw new Error();
-    }
+    } catch {}
   }, [apiUrl, dispatch]);
 
   const deleteExercise = async (deleteId: IExercise["id"]) => {
     try {
-      const response = await fetch(`${apiUrl}/${deleteId}`, {
+      await fetch(`${apiUrl}/${deleteId}`, {
         method: "DELETE",
       });
       dispatch(deleteExerciseActionCreator(deleteId));
-
-      if (!response.ok) {
-      }
     } catch {}
   };
   return { getAllExercises, deleteExercise };
