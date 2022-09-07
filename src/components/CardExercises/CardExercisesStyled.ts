@@ -37,6 +37,8 @@ const CardExercisesStyled = styled.div`
 
   .card-button {
     &__edit {
+      border: none;
+      outline: none;
       border-radius: 20px;
       margin: 40px 20px;
       height: 40px;
@@ -52,10 +54,13 @@ const CardExercisesStyled = styled.div`
       &:hover {
         background-color: inherit;
         font-size: 16px;
+        outline: auto;
       }
     }
 
     &__delete {
+      border: none;
+      outline: none;
       border-radius: 20px;
       margin: 40px 20px;
       height: 40px;
@@ -71,6 +76,7 @@ const CardExercisesStyled = styled.div`
       &:hover {
         background-color: inherit;
         font-size: 16px;
+        outline: auto;
       }
     }
   }
