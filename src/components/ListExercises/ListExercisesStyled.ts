@@ -13,7 +13,7 @@ const ListExercisesStyled = styled.main`
     padding: 0;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: flex-start;
     &__item {
       padding: 20px;
       margin-bottom: 30px;
