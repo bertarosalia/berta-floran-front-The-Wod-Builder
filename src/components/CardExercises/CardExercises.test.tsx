@@ -21,13 +21,14 @@ describe("Given a Exercises Card component", () => {
     test("It should show an image with the exercise", () => {
       render(
         <Provider store={store}>
-          <CardExercises
-            name={testExercise.name}
-            body={testExercise.body}
-            description={testExercise.description}
-            image={testExercise.image}
-            id={testExercise.id}
-          ></CardExercises>
+          <BrowserRouter>
+            <CardExercises
+              name={testExercise.name}
+              body={testExercise.body}
+              image={testExercise.image}
+              id={testExercise.id}
+            ></CardExercises>
+          </BrowserRouter>
         </Provider>
       );
 
