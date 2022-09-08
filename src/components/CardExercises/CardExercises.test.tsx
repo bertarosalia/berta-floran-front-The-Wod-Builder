@@ -9,6 +9,13 @@ import userEvent from "@testing-library/user-event";
 let mockDeleteExercise = { deleteExercise: jest.fn() };
 jest.mock("../../hooks/useExercises", () => () => mockDeleteExercise);
 
+const mockNavigate = jest.fn();
+
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useNavigate: () => mockNavigate,
+}));
+
 describe("Given a Exercises Card component", () => {
   describe("When is instantiated with an exercise", () => {
     const testExercise: IExercise = {
@@ -63,6 +70,31 @@ describe("Given a Exercises Card component", () => {
         expect(iconTrash).toBeInTheDocument();
 
         await expect(mockDeleteExercise.deleteExercise).toHaveBeenCalled();
+      });
+      describe("When it's called and clicked in the image", () => {
+        test("Then it should call navigate with param '/detail:test'", async () => {
+          render(
+            <Provider store={store}>
+              <BrowserRouter>
+                <CardExercises
+                  key={testExercise.id}
+                  name={testExercise.name}
+                  body={testExercise.body}
+                  description={testExercise.description}
+                  image={testExercise.image}
+                  id={testExercise.id}
+                />
+              </BrowserRouter>
+            </Provider>
+          );
+
+          const exercisePicture = screen.getByRole("img", { name: "" });
+
+          await userEvent.click(exercisePicture);
+
+          expect(exercisePicture).toBeInTheDocument();
+          await expect(mockNavigate).toHaveBeenCalled();
+        });
       });
     });
   });
