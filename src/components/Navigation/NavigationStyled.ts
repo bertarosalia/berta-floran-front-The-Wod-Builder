@@ -23,7 +23,6 @@ export const NavigationStyled = styled.div`
   }
 
   .logo__image {
-    margin-left: 30px;
     margin-top: 18px;
   }
 
