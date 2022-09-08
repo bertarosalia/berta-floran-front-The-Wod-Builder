@@ -10,6 +10,7 @@ export const NavigationStyled = styled.div`
     font-weight: bold;
     padding: 20px;
     margin-left: 20px;
+    font-size: 20px;
   }
 
   .navigation-exercises {
