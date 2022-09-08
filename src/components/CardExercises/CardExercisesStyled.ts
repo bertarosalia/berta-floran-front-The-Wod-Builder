@@ -20,6 +20,11 @@ const CardExercisesStyled = styled.div`
     margin-left: 30px;
     margin-right: 20px;
     cursor: pointer;
+    &:hover {
+      width: 205px;
+      height: 205px;
+      margin-right: 15px;
+    }
   }
 
   .card__info {
@@ -44,6 +49,7 @@ const CardExercisesStyled = styled.div`
     margin: 10px 5px;
     font-size: 20px;
     cursor: pointer;
+    text-decoration: underline;
 
     &:hover {
       font-weight: bold;

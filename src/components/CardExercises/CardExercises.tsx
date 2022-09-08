@@ -40,7 +40,7 @@ const CardExercises = ({
             <li className="info__data">Name: {name}</li>
             <li className="info__data">Body: {body}</li>
             <li className="info__data--description" onClick={detailExercise}>
-              Description: READ MORE
+              Description: Read More
             </li>
           </ul>
           <div className="card-button">
