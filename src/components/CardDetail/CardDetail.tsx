@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useAppSelector } from "../../app/hooks";
 import { RootState } from "../../app/store";
 import CardDetailStyled from "./CardDetailStyled";
@@ -26,10 +26,22 @@ const CardDetail = (): JSX.Element => {
   }
   const { body, name, description, image } = exerciseData;
 
+  const navigate = useNavigate();
+  const backToList = (event: { stopPropagation: () => void }): void => {
+    event.stopPropagation();
+    navigate(`/exercises`);
+  };
+
   return (
     <>
       <CardDetailStyled>
         <div className="card-detail__container">
+          <input
+            type="button"
+            onClick={backToList}
+            className="card-detail__button--close"
+            value={"X"}
+          />
           <h1 className="card-detail__title">Want to know more</h1>
           <img className="card-detail__image" src={image} alt={name} />
           <ul className="card-detail__info" key={id}>

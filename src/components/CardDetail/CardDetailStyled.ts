@@ -6,7 +6,27 @@ const CardDetailStyled = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding: 40px;
+    padding: 10px;
+  }
+
+  .card-detail__button--close {
+    height: 30px;
+    width: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: ${styledMainTheme.buttonBig};
+    border-radius: 50px;
+    align-self: flex-end;
+    border: none;
+    outline: none;
+    margin-top: 40px;
+    margin-right: 130px;
+
+    &:hover {
+      font-size: 18px;
+      outline: auto;
+      cursor: pointer;
+    }
   }
 
   .card-detail__title {
