@@ -63,15 +63,13 @@ describe("Given a useExercises hook", () => {
         await deleteExercise(idExercise);
       });
 
-      //expect("DELETE").toHaveBeenCalled();
-
       await waitFor(() => {
         expect(mockDispatch).toHaveBeenCalledWith(
           deleteExerciseActionCreator(idExercise)
         );
       });
     });
-    describe("When called with an invalid exercise id", () => {
+    describe("When it´s invoked with an invalid exercise id", () => {
       test("Then it should not dispatch the delete action", async () => {
         await act(async () => {
           await deleteExercise("wrongId");
