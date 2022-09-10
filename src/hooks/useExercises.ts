@@ -2,6 +2,7 @@ import { useCallback } from "react";
 import { useDispatch } from "react-redux";
 import IExercise from "../features/interfaces";
 import {
+  createExerciseActionCreator,
   deleteExerciseActionCreator,
   loadAllExercisesactionCreator,
 } from "../features/store/exercisesSlice";
@@ -27,6 +28,21 @@ const useExercises = () => {
       dispatch(deleteExerciseActionCreator(deleteId));
     } catch {}
   };
-  return { getAllExercises, deleteExercise };
+
+  const createExercise = async (newExercise: IExercise) => {
+    try {
+      const response = await fetch(`${apiUrl}/create`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newExercise),
+      });
+      const { exercise } = await response.json();
+
+      dispatch(createExerciseActionCreator(exercise));
+    } catch {}
+  };
+  return { getAllExercises, deleteExercise, createExercise };
 };
 export default useExercises;
