@@ -6,9 +6,7 @@ import CardDetailPage from "./CardDetailPage";
 
 describe("Given a Card Detail Page", () => {
   describe("When it´s rendered", () => {
-    test("It should show an h1 title 'Want to know more' inside", () => {
-      const expectedTitle = "Want to know more";
-
+    test("It should show an h1 title", () => {
       render(
         <Provider store={store}>
           <BrowserRouter>
@@ -17,9 +15,7 @@ describe("Given a Card Detail Page", () => {
         </Provider>
       );
 
-      const expectedResult = screen.getByRole("heading", {
-        name: expectedTitle,
-      });
+      const expectedResult = screen.getByRole("heading", { name: "" });
 
       expect(expectedResult).toBeInTheDocument();
     });

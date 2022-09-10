@@ -63,11 +63,11 @@ const CardExercisesStyled = styled.div`
       border-radius: 20px;
       margin: 40px 30px;
       height: 40px;
-      width: 100px;
+      width: 90px;
       padding: 5px;
       text-align: center;
       font-weight: bold;
-      font-size: 17px;
+      font-size: 15px;
       cursor: pointer;
       color: ${styledMainTheme.white};
       background-color: ${styledMainTheme.buttonEdit};
@@ -75,7 +75,6 @@ const CardExercisesStyled = styled.div`
 
       &:hover {
         background-color: inherit;
-        font-size: 18px;
         outline: auto;
       }
     }
@@ -86,11 +85,11 @@ const CardExercisesStyled = styled.div`
       border-radius: 20px;
       margin: 40px 30px;
       height: 40px;
-      width: 100px;
+      width: 90px;
       padding: 5px;
       text-align: center;
       font-weight: bold;
-      font-size: 17px;
+      font-size: 15px;
       color: ${styledMainTheme.black};
       background-color: ${styledMainTheme.buttonDelete};
       font-family: ${styledMainTheme.primaryFont};
@@ -98,7 +97,6 @@ const CardExercisesStyled = styled.div`
 
       &:hover {
         background-color: inherit;
-        font-size: 18px;
         outline: auto;
       }
     }
