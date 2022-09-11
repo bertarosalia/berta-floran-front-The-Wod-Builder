@@ -3,7 +3,7 @@ import { ButtonStyled } from "./ButtonStyled";
 export interface ButtonProps {
   buttonText: string;
   classNameButton: string;
-  actionOnClick: () => void;
+  actionOnClick?: () => void;
   type: "submit" | "button";
   isDisable?: boolean;
 }
@@ -17,12 +17,7 @@ const Button = ({
 }: ButtonProps): JSX.Element => {
   return (
     <ButtonStyled>
-      <button
-        className={classNameButton}
-        type={type}
-        onClick={() => actionOnClick()}
-        disabled={isDisable}
-      >
+      <button className={classNameButton} type={type} disabled={isDisable}>
         {buttonText}
       </button>
     </ButtonStyled>
