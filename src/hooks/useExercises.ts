@@ -1,5 +1,6 @@
+import axios from "axios";
 import { useCallback } from "react";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../app/hooks";
 import IExercise from "../features/interfaces";
 import {
   createExerciseActionCreator,
@@ -7,42 +8,57 @@ import {
   loadAllExercisesactionCreator,
 } from "../features/store/exercisesSlice";
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
 const useExercises = () => {
-  const dispatch = useDispatch();
-  const apiUrl = process.env.REACT_APP_API_URL;
+  const dispatch = useAppDispatch();
 
-  const getAllExercises = useCallback(async () => {
+  const getAllExercises = useCallback(async (): Promise<void> => {
+    const loadExercisesUrl = `${apiUrl}/exercises` as string;
+
     try {
-      const response: Response = await fetch(`${apiUrl}/exercises` as string);
-      const data = await response.json();
-      const { exercises } = data;
+      const {
+        data: { exercises },
+      } = await axios.get(loadExercisesUrl);
       dispatch(loadAllExercisesactionCreator(exercises));
-    } catch {}
-  }, [apiUrl, dispatch]);
+    } catch (error) {}
+  }, [dispatch]);
 
-  const deleteExercise = async (deleteId: IExercise["id"]) => {
+  const deleteExercise = async (deleteId: string) => {
     try {
-      await fetch(`${apiUrl}/${deleteId}`, {
-        method: "DELETE",
-      });
+      await axios.delete(`${apiUrl}/${deleteId}`);
+
       dispatch(deleteExerciseActionCreator(deleteId));
     } catch {}
   };
 
-  const createExercise = async (newExercise: IExercise) => {
+  const getOneExerciseById = async (exerciseId: string) => {
     try {
-      const response = await fetch(`${apiUrl}/create`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newExercise),
-      });
-      const { exercise } = await response.json();
-
-      dispatch(createExerciseActionCreator(exercise));
-    } catch {}
+      const {
+        data: { exercise },
+      } = await axios.get(`${apiUrl}/${exerciseId}`);
+      return exercise;
+    } catch (error) {}
   };
-  return { getAllExercises, deleteExercise, createExercise };
+
+  const createExercise = useCallback(
+    async (newExercise: IExercise) => {
+      try {
+        const {
+          data: { exerciseCreated },
+        } = await axios.post(`${apiUrl}/create`, newExercise);
+        dispatch(createExerciseActionCreator(exerciseCreated));
+        return exerciseCreated;
+      } catch {}
+    },
+    [dispatch]
+  );
+  return {
+    getAllExercises,
+    deleteExercise,
+    createExercise,
+    getOneExerciseById,
+  };
 };
+
 export default useExercises;
