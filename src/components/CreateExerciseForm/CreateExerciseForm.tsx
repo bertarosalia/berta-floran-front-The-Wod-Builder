@@ -4,7 +4,7 @@ import Button from "../Button/Button";
 import CreateExerciseFormStyle from "./CreateExerciseFormStyle";
 
 const CreateExerciseForm = (): JSX.Element => {
-  // let newFormData = new FormData();
+  let newFormData = new FormData();
 
   const initialState = {
     name: "",
@@ -35,10 +35,10 @@ const CreateExerciseForm = (): JSX.Element => {
     setFormData(initialState);
   };
 
-  // const onChangeFile = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   newFormData.append("image", event.target.files![0]);
-  //   setFormData({ ...formData, image: event.target.value });
-  // };
+  const onChangeFile = (event: React.ChangeEvent<HTMLInputElement>) => {
+    newFormData.append("image", event.target.files![0]);
+    setFormData({ ...formData, image: event.target.value });
+  };
 
   return (
     <>
@@ -101,7 +101,7 @@ const CreateExerciseForm = (): JSX.Element => {
                 placeholder="url image"
                 autoComplete="off"
                 value={formData.image}
-                onChange={onChangeData}
+                onChange={onChangeFile}
               />
             </div>
             <div className="create-form__button">
