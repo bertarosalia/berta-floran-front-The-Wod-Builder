@@ -4,40 +4,28 @@ import Button from "../Button/Button";
 import CreateExerciseFormStyle from "./CreateExerciseFormStyle";
 
 const CreateExerciseForm = (): JSX.Element => {
-  let newFormData = new FormData();
-
   const initialState = {
     name: "",
     body: "",
     description: "",
     image: "",
+    id: "",
   };
 
   const { createExercise } = useExercises();
 
-  const [formData, setFormData] = useState(initialState);
+  const [newExercise, setFormData] = useState(initialState);
 
   const onChangeData = (
     event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
-    setFormData({ ...formData, [event.target.id]: event.target.value });
+    setFormData({ ...newExercise, [event.target.id]: event.target.value });
   };
 
-  const onSubmitData = async (event: SyntheticEvent) => {
+  const createNewExercise = async (event: SyntheticEvent) => {
     event.preventDefault();
-    await createExercise({
-      name: formData.name,
-      body: formData.body,
-      description: formData.description,
-      image: formData.image,
-      id: "",
-    });
+    await createExercise(newExercise);
     setFormData(initialState);
-  };
-
-  const onChangeFile = (event: React.ChangeEvent<HTMLInputElement>) => {
-    newFormData.append("image", event.target.files![0]);
-    setFormData({ ...formData, image: event.target.value });
   };
 
   return (
@@ -45,7 +33,7 @@ const CreateExerciseForm = (): JSX.Element => {
       <CreateExerciseFormStyle>
         <div className="create-form__container">
           <h1 className="create-form__title">Let´s train!</h1>
-          <form onSubmit={onSubmitData}>
+          <form onSubmit={createNewExercise}>
             <div className="create-form__label--container">
               <label htmlFor="name" className="create-form__label">
                 Name
@@ -56,7 +44,7 @@ const CreateExerciseForm = (): JSX.Element => {
                 id="name"
                 required
                 autoComplete="off"
-                value={formData.name}
+                value={newExercise.name}
                 onChange={onChangeData}
               />
             </div>
@@ -70,7 +58,7 @@ const CreateExerciseForm = (): JSX.Element => {
                 id="body"
                 required
                 autoComplete="off"
-                value={formData.body}
+                value={newExercise.body}
                 onChange={onChangeData}
               />
             </div>
@@ -82,10 +70,10 @@ const CreateExerciseForm = (): JSX.Element => {
                 className="create-form__input"
                 type="text"
                 id="description"
-                minLength={30}
+                minLength={20}
                 required
                 autoComplete="off"
-                value={formData.description}
+                value={newExercise.description}
                 onChange={onChangeData}
               />
             </div>
@@ -96,12 +84,11 @@ const CreateExerciseForm = (): JSX.Element => {
               <input
                 className="create-form__input"
                 type="url"
-                pattern=".+\.com"
                 id="exerciseimage"
                 placeholder="url image"
                 autoComplete="off"
-                value={formData.image}
-                onChange={onChangeFile}
+                value={newExercise.image}
+                onChange={onChangeData}
               />
             </div>
             <div className="create-form__button">
