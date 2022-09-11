@@ -54,6 +54,11 @@ const Navigation = (): JSX.Element => {
             </NavLink>
           </li>
           <li className="list-exercises-pages_item">
+            <NavLink to="/create-exercise" className={"nav-links"}>
+              Create exercise
+            </NavLink>
+          </li>
+          <li className="list-exercises-pages_item">
             <NavLink to="/register" className={"nav-links"}>
               Register
             </NavLink>
