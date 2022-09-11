@@ -50,7 +50,7 @@ const CardExercises = ({
               className="card-button__delete"
               data-testid="icon-trash"
               value="DELETE"
-              onClick={exerciseDelete}
+              onClick={() => exerciseDelete()}
             />
           </div>
         </div>
