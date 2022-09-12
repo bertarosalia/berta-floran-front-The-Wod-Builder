@@ -1,31 +1,21 @@
-import { useNavigate, useParams } from "react-router-dom";
-import { useAppSelector } from "../../app/hooks";
-import { RootState } from "../../app/store";
+import { useNavigate } from "react-router-dom";
 import CardDetailStyled from "./CardDetailStyled";
 
-const CardDetail = (): JSX.Element => {
-  const exercises = useAppSelector((state: RootState) => state.exercises);
+interface CardExercisesProps {
+  body: string;
+  name: string;
+  description?: string;
+  image: string;
+  id?: string;
+}
 
-  const { id } = useParams();
-  const idToModify = id?.replace(":", "");
-  const exerciseToShow = exercises.find(
-    (exercise) => exercise.id === idToModify
-  );
-
-  const dataEmpty = {
-    body: "",
-    name: "",
-    description: "",
-    image: "",
-    id: "",
-  };
-  let exerciseData = dataEmpty;
-
-  if (exerciseToShow) {
-    exerciseData = exerciseToShow;
-  }
-  const { body, name, description, image } = exerciseData;
-
+const CardDetail = ({
+  body,
+  name,
+  description,
+  image,
+  id,
+}: CardExercisesProps): JSX.Element => {
   const navigate = useNavigate();
   const backToList = (event: { stopPropagation: () => void }): void => {
     event.stopPropagation();
