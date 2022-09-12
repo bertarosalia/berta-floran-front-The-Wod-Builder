@@ -1,9 +1,10 @@
 import { renderHook, waitFor } from "@testing-library/react";
 import { act } from "react-dom/test-utils";
-import exercisesReducer, {
+import {
   deleteExerciseActionCreator,
-  exercisesSlice,
+  loadAllExercisesactionCreator,
 } from "../features/store/exercisesSlice";
+
 import Wrapper from "../utils/Wrapper";
 import useExercises from "./useExercises";
 
@@ -44,7 +45,7 @@ describe("Given a useExercises hook", () => {
 
       await waitFor(() => {
         expect(mockDispatch).toHaveBeenCalledWith(
-          exercisesSlice.actions.loadAllExercises(mockedFetchValue.exercises)
+          loadAllExercisesactionCreator(mockedFetchValue.exercises)
         );
       });
     });
