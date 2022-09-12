@@ -9,7 +9,6 @@ const CreateExerciseForm = (): JSX.Element => {
     body: "",
     description: "",
     image: "",
-    id: "",
   };
 
   const { createExercise } = useExercises();
