@@ -18,12 +18,11 @@ const CardExercisesStyled = styled.div`
     height: 200px;
     border-radius: 10px;
     margin-left: 30px;
-    margin-right: 20px;
     cursor: pointer;
     &:hover {
       width: 205px;
       height: 205px;
-      margin-right: 15px;
+      margin-right: 5px;
     }
   }
 
