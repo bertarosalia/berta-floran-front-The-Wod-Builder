@@ -24,21 +24,12 @@ const useExercises = () => {
     } catch (error) {}
   }, [dispatch]);
 
-  const deleteExercise = async (deleteId: string) => {
+  const deleteExercise = async (deleteId: IExercise["id"]) => {
     try {
       await axios.delete(`${apiUrl}/${deleteId}`);
 
       dispatch(deleteExerciseActionCreator(deleteId));
     } catch {}
-  };
-
-  const getOneExerciseById = async (exerciseId: string) => {
-    try {
-      const {
-        data: { exercise },
-      } = await axios.get(`${apiUrl}/${exerciseId}`);
-      return exercise;
-    } catch (error) {}
   };
 
   const createExercise = useCallback(
@@ -57,7 +48,6 @@ const useExercises = () => {
     getAllExercises,
     deleteExercise,
     createExercise,
-    getOneExerciseById,
   };
 };
 
