@@ -78,14 +78,15 @@ const CreateExerciseForm = (): JSX.Element => {
               />
             </div>
             <div className="create-form__label--container">
-              <label htmlFor="exerciseimage" className="create-form__label">
+              <label htmlFor="image" className="create-form__label">
                 Image
               </label>
               <input
                 className="create-form__input"
-                type="url"
-                id="exerciseimage"
-                placeholder="url image"
+                type="text"
+                id="image"
+                required
+                placeholder="insert an url"
                 autoComplete="off"
                 value={newExercise.image}
                 onChange={onChangeData}
