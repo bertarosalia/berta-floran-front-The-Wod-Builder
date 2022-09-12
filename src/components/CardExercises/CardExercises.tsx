@@ -23,7 +23,7 @@ const CardExercises = ({
   const navigate = useNavigate();
   const detailExercise = (event: { stopPropagation: () => void }): void => {
     event.stopPropagation();
-    navigate(`/detail:${id}`);
+    navigate(`/:${id}`);
   };
 
   return (
@@ -50,7 +50,7 @@ const CardExercises = ({
               className="card-button__delete"
               data-testid="icon-trash"
               value="DELETE"
-              onClick={() => exerciseDelete()}
+              onClick={exerciseDelete}
             />
           </div>
         </div>
