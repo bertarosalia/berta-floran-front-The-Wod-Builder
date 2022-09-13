@@ -8,11 +8,13 @@ describe("Given a Card Detail Page", () => {
   describe("When it´s rendered", () => {
     test("It should show an h1 title", () => {
       render(
-        <Provider store={store}>
-          <BrowserRouter>
-            <CardDetailPage />
-          </BrowserRouter>
-        </Provider>
+        <>
+          <Provider store={store}>
+            <BrowserRouter>
+              <CardDetailPage />
+            </BrowserRouter>
+          </Provider>
+        </>
       );
 
       const expectedResult = screen.getByRole("heading", { name: "" });
