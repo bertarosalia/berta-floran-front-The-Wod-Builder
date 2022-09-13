@@ -6,7 +6,7 @@ interface CardExercisesProps {
   name: string;
   description?: string;
   image: string;
-  id: string;
+  id?: string;
 }
 
 const CardExercises = ({
@@ -17,13 +17,13 @@ const CardExercises = ({
 }: CardExercisesProps): JSX.Element => {
   const { deleteExercise } = useExercises();
   const exerciseDelete = () => {
-    deleteExercise(id);
+    deleteExercise(id as string);
   };
 
   const navigate = useNavigate();
   const detailExercise = (event: { stopPropagation: () => void }): void => {
     event.stopPropagation();
-    navigate(`/:${id}`);
+    navigate(`/details/:${id}`);
   };
 
   return (
