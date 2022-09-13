@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../app/hooks";
 import IExercise from "../features/interfaces";
 import {
   createExerciseActionCreator,
@@ -8,25 +8,30 @@ import {
 } from "../features/store/exercisesSlice";
 
 const useExercises = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const apiUrl = process.env.REACT_APP_API_URL;
 
   const getAllExercises = useCallback(async () => {
     try {
-      const response: Response = await fetch(`${apiUrl}/exercises` as string);
+      const response = await fetch(`${apiUrl}/exercises`);
       const data = await response.json();
       const { exercises } = data;
       dispatch(loadAllExercisesactionCreator(exercises));
     } catch {}
   }, [apiUrl, dispatch]);
 
-  const deleteExercise = async (deleteId: IExercise["id"]) => {
+  const deleteExercise = async (deleteId: string) => {
     try {
-      await fetch(`${apiUrl}/${deleteId}`, {
+      const response = await fetch(`${apiUrl}/${deleteId}`, {
         method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
-      dispatch(deleteExerciseActionCreator(deleteId));
+      const exerciseDelete = await response.json();
+      return exerciseDelete;
     } catch {}
+    dispatch(deleteExerciseActionCreator(deleteId as string));
   };
 
   const createExercise = async (newExercise: IExercise) => {
@@ -43,6 +48,11 @@ const useExercises = () => {
       dispatch(createExerciseActionCreator(exercise));
     } catch {}
   };
-  return { getAllExercises, deleteExercise, createExercise };
+
+  return {
+    getAllExercises,
+    deleteExercise,
+    createExercise,
+  };
 };
 export default useExercises;
