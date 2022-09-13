@@ -25,7 +25,7 @@ const useExercises = () => {
       await fetch(`${apiUrl}/${deleteId}`, {
         method: "DELETE",
       });
-      dispatch(deleteExerciseActionCreator(deleteId));
+      dispatch(deleteExerciseActionCreator(deleteId as string));
     } catch {}
   };
 
