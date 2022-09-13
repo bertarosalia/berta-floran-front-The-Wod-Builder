@@ -3,7 +3,7 @@ import exercisesReducer, {
   deleteExerciseActionCreator,
   loadAllExercisesactionCreator,
 } from "./exercisesSlice";
-import IExercise from "../interfaces";
+import IExercise from "../../interfaces";
 
 describe("Given an exercises reducer function", () => {
   const inititialStateExercises: IExercise[] = [];

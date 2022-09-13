@@ -6,7 +6,7 @@ import { store } from "../app/store";
 import {
   deleteExerciseActionCreator,
   loadAllExercisesactionCreator,
-} from "../features/store/exercisesSlice";
+} from "../features/store/exercises/exercisesSlice";
 import useExercises from "./useExercises";
 
 interface WrapperProps {
