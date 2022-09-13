@@ -4,6 +4,7 @@ import CardDetail from "./CardDetail";
 import { BrowserRouter } from "react-router-dom";
 import { store } from "../../app/store";
 import userEvent from "@testing-library/user-event";
+import IExercise from "../../features/interfaces";
 
 const mockNavigate = jest.fn();
 
@@ -12,13 +13,26 @@ jest.mock("react-router-dom", () => ({
   useNavigate: () => mockNavigate,
 }));
 
+const testExercise: IExercise = {
+  body: "",
+  name: "",
+  description: "",
+  image: "url",
+  id: "15",
+};
+
 describe("Given a card exercise detail", () => {
   describe("When is called with an exercise id in params and store has that exercise", () => {
     test("It should show a card with an image inside", () => {
       render(
         <Provider store={store}>
           <BrowserRouter>
-            <CardDetail />
+            <CardDetail
+              name={testExercise.name}
+              body={testExercise.body}
+              image={testExercise.image}
+              id={testExercise.id}
+            />
           </BrowserRouter>
         </Provider>
       );
@@ -33,7 +47,12 @@ describe("Given a card exercise detail", () => {
       render(
         <Provider store={store}>
           <BrowserRouter>
-            <CardDetail />
+            <CardDetail
+              name={testExercise.name}
+              body={testExercise.body}
+              image={testExercise.image}
+              id={testExercise.id}
+            />
           </BrowserRouter>
         </Provider>
       );
