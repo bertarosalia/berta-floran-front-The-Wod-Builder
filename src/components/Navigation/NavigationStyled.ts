@@ -23,7 +23,7 @@ export const NavigationStyled = styled.div`
   }
 
   .logo__image {
-    margin-top: 18px;
+    margin-top: 20px;
   }
 
   .list-exercises-pages {
