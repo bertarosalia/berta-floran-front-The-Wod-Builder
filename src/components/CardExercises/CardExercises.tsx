@@ -16,13 +16,10 @@ const CardExercises = ({
   id,
 }: CardExercisesProps): JSX.Element => {
   const { deleteExercise } = useExercises();
-  const exerciseDelete = () => {
-    deleteExercise(id as string);
-  };
 
   const navigate = useNavigate();
-  const detailExercise = (event: { stopPropagation: () => void }): void => {
-    event.stopPropagation();
+
+  const detailExercise = () => {
     navigate(`/detail/:${id}`);
   };
 
@@ -50,7 +47,7 @@ const CardExercises = ({
               className="card-button__delete"
               data-testid="icon-trash"
               value="DELETE"
-              onClick={exerciseDelete}
+              onClick={() => deleteExercise(id as string)}
             />
           </div>
         </div>
