@@ -13,13 +13,14 @@ const initialState: IExercise = {
 };
 
 const CardDetailPage = (): JSX.Element => {
-  const [exercise, setExercise] = useState(initialState);
   const { getOneExerciseById } = useExercises();
+
+  const [exercise, setExercise] = useState(initialState);
   const { id } = useParams();
 
   useEffect(() => {
     (async () => {
-      const exercise = await getOneExerciseById(id!);
+      const exercise = await getOneExerciseById(id as string);
       setExercise(exercise);
     })();
   }, [getOneExerciseById, id]);
