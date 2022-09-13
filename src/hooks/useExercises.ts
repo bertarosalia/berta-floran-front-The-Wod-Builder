@@ -22,7 +22,7 @@ const useExercises = () => {
 
   const deleteExercise = async (deleteId: string) => {
     try {
-      const response = await fetch(`${apiUrl}/${deleteId}`, {
+      const response = await fetch(`${apiUrl}/:${deleteId}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -31,7 +31,7 @@ const useExercises = () => {
       const exerciseDelete = await response.json();
       return exerciseDelete;
     } catch {}
-    dispatch(deleteExerciseActionCreator(deleteId as string));
+    dispatch(deleteExerciseActionCreator(deleteId));
   };
 
   const createExercise = async (newExercise: IExercise) => {
@@ -49,10 +49,28 @@ const useExercises = () => {
     } catch {}
   };
 
+  const getOneExerciseById = useCallback(
+    async (id: string) => {
+      try {
+        const response = await fetch(`${apiUrl}/${id}`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        const idExercise = await response.json();
+
+        return idExercise;
+      } catch {}
+    },
+    [apiUrl]
+  );
+
   return {
     getAllExercises,
     deleteExercise,
     createExercise,
+    getOneExerciseById,
   };
 };
 export default useExercises;
