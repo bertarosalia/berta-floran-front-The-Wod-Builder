@@ -23,7 +23,7 @@ const CardExercises = ({
   const navigate = useNavigate();
   const detailExercise = (event: { stopPropagation: () => void }): void => {
     event.stopPropagation();
-    navigate(`/details/:${id}`);
+    navigate(`/detail/:${id}`);
   };
 
   return (
