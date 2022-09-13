@@ -5,7 +5,11 @@ import {
   createExerciseActionCreator,
   deleteExerciseActionCreator,
   loadAllExercisesactionCreator,
-} from "../features/store/exercisesSlice";
+} from "../features/store/exercises/exercisesSlice";
+import {
+  closeLoaderActionCreator,
+  showLoaderActionCreator,
+} from "../features/store/UI/UISlice";
 
 const useExercises = () => {
   const dispatch = useAppDispatch();
@@ -13,9 +17,14 @@ const useExercises = () => {
 
   const getAllExercises = useCallback(async () => {
     try {
+      dispatch(showLoaderActionCreator());
+
       const response = await fetch(`${apiUrl}/exercises`);
       const data = await response.json();
       const { exercises } = data;
+
+      dispatch(closeLoaderActionCreator());
+
       dispatch(loadAllExercisesactionCreator(exercises));
     } catch {}
   }, [apiUrl, dispatch]);

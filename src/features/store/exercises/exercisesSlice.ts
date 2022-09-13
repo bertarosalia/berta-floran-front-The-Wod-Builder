@@ -1,4 +1,4 @@
-import IExercise from "../interfaces";
+import IExercise from "../../interfaces";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const inititialStateExercises: IExercise[] = [];

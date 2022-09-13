@@ -14,7 +14,6 @@ function App() {
         <Route path="/exercises" element={<ListExercisesPage />} />
         <Route path="*" element={<NotFoundPage />} />
 
-
         <Route path="/detail/:id" element={<CardDetailPage />} />
 
         <Route path="/create-exercise" element={<CreateExerciseFormPage />} />
