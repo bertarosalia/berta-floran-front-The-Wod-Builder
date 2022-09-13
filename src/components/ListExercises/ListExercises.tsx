@@ -8,8 +8,11 @@ import ListExercisesStyled from "./ListExercisesStyled";
 const ListExercises = (): JSX.Element => {
   const { getAllExercises } = useExercises();
   const exercises = useAppSelector((state: RootState) => state.exercises);
+
   useEffect(() => {
-    getAllExercises();
+    (async () => {
+      await getAllExercises();
+    })();
   }, [getAllExercises]);
 
   return (
@@ -25,7 +28,6 @@ const ListExercises = (): JSX.Element => {
                 name={exercise.name}
                 description={exercise.description}
                 image={exercise.image}
-                id={exercise.id}
               />
             </li>
           ))}

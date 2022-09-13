@@ -13,7 +13,10 @@ function App() {
         <Route path="/" element={<Navigate to="/exercises" />} />
         <Route path="/exercises" element={<ListExercisesPage />} />
         <Route path="*" element={<NotFoundPage />} />
-        <Route path="/details/:id" element={<CardDetailPage />} />
+
+
+        <Route path="/detail/:id" element={<CardDetailPage />} />
+
         <Route path="/create-exercise" element={<CreateExerciseFormPage />} />
       </Routes>
     </>
