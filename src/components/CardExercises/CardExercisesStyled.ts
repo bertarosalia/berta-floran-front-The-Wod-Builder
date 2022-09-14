@@ -22,7 +22,7 @@ const CardExercisesStyled = styled.div`
     &:hover {
       width: 205px;
       height: 205px;
-      margin-right: 5px;
+      margin-right: -5px;
     }
   }
 
