@@ -1,5 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import { useAppSelector } from "./app/hooks";
+import Footer from "./components/Footer/Footer";
 import Loading from "./components/Loading/Loading";
 import Navigation from "./components/Navigation/Navigation";
 import CardDetailPage from "./pages/CardDetailPage/CardDetailPage";
@@ -23,6 +24,7 @@ function App() {
 
         <Route path="/create-exercise" element={<CreateExerciseFormPage />} />
       </Routes>
+      <Footer />
     </>
   );
 }
