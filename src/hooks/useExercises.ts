@@ -34,36 +34,36 @@ const useExercises = () => {
 
       const response = await fetch(`${apiUrl}/exercises`);
 
+      if (!response.ok) {
+        throw new Error();
+      }
       const data = await response.json();
 
       dispatch(closeLoaderActionCreator());
-      dispatch(loadAllExercisesactionCreator(data));
+      dispatch(loadAllExercisesactionCreator(data.exercises));
     } catch {}
   }, [apiUrl, dispatch]);
 
-  const deleteExercise = useCallback(
-    async (deleteId: string) => {
-      try {
-        const response = await fetch(`${apiUrl}/:${deleteId}`, {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+  const deleteExercise = async (deleteId: string) => {
+    try {
+      const response = await fetch(`${apiUrl}/:${deleteId}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
-        if (!response.ok) {
-          throw new Error();
-        }
-      } catch (error) {
-        errorModal("Uh, no! You need to take action! Something went wrong!");
+      if (!response.ok) {
+        throw new Error();
       }
       dispatch(deleteExerciseActionCreator(deleteId));
       successModal(
         "Good news, everyone! Nothing to worry about, exercise has been deleted successfully!"
       );
-    },
-    [apiUrl, dispatch]
-  );
+    } catch (error) {
+      errorModal("Uh, no! You need to take action! Something went wrong!");
+    }
+  };
 
   const createExercise = async (newExercise: IExercise) => {
     try {
