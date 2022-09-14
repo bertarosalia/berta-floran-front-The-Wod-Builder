@@ -20,6 +20,7 @@ export const NavigationStyled = styled.div`
     list-style: none;
     align-items: center;
     justify-content: space-around;
+    padding: 30px;
   }
 
   .logo__image {
