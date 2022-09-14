@@ -79,7 +79,6 @@ const useExercises = () => {
         "Nothing to worry about! Exercise has been created successfully!"
       );
       dispatch(createExerciseActionCreator(exercise));
-      return exercise;
     } catch (error) {
       errorModal(
         "Uh, no! You need to take action! Exercise has not been deleted successfully! Try again!"
