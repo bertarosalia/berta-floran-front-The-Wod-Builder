@@ -23,7 +23,7 @@ const Navigation = (): JSX.Element => {
           </li>
           <li className="list-exercises-pages_item">
             <NavLink to="/register" className={"nav-links"}>
-              Register
+              Sign up
             </NavLink>
           </li>
           <li className="list-exercises-pages_item">
