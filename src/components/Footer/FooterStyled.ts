@@ -15,6 +15,7 @@ const FooterStyled = styled.footer`
     display: flex;
     flex-direction: column;
     font-size: 16px;
+    margin-bottom: 30px;
   }
 
   .footer__contact--details {
@@ -24,22 +25,23 @@ const FooterStyled = styled.footer`
   }
 
   .footer__download {
-    height: 150px;
-    width: 350px;
+    height: 100px;
+    width: 300px;
     cursor: pointer;
+    margin: 20px;
   }
 
   .footer__icon {
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     margin: 15px;
     margin-top: 45px;
     cursor: pointer;
   }
 
   .footer__icon--instagram {
-    height: 70px;
-    width: 70px;
+    height: 60px;
+    width: 60px;
     margin-bottom: 5px;
     cursor: pointer;
   }
