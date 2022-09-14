@@ -29,8 +29,8 @@ describe("Given the Navigation component", () => {
 
       expect(navLogo).toBeInTheDocument();
     });
-    test("Then it should show 'Register' text inside nav bar", () => {
-      const text = "Register";
+    test("Then it should show 'Sign up' text inside nav bar", () => {
+      const text = "Sign up";
 
       render(
         <BrowserRouter>
