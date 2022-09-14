@@ -13,25 +13,25 @@ const CreateExerciseFormStyle = styled.div`
   .create-form__title {
     color: ${styledMainTheme.white};
     text-align: center;
-    padding: 20px;
+    font-size: 25px;
   }
 
   .create-form__input {
     width: 800px;
-    height: 50px;
+    height: 40px;
     background-color: ${styledMainTheme.inputs};
     font-family: ${styledMainTheme.primaryFont};
     font-size: 15px;
     font-weight: bolder;
     border-radius: 10px;
-    margin: 10px 0 30px;
+    margin: 10px 0 20px;
     cursor: text;
     text-align: center;
   }
 
   .create-form__label {
     color: ${styledMainTheme.white};
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .create-exercise__button {
@@ -47,7 +47,7 @@ const CreateExerciseFormStyle = styled.div`
     font-family: ${styledMainTheme.primaryFont};
     background-color: ${styledMainTheme.buttonBig};
     cursor: pointer;
-    margin-bottom: 50px;
+    margin: 20px;
 
     &:hover {
       background-color: inherit;
