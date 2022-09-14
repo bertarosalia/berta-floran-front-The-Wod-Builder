@@ -3,12 +3,13 @@ import styledMainTheme from "../../styledMainTheme";
 
 const FooterStyled = styled.footer`
   background-color: ${styledMainTheme.navigation};
-  color: white;
+  height: 100%;
 
   .footer__container {
     display: flex;
     align-content: space-between;
     justify-content: space-around;
+    gap: 16px;
   }
 
   .footer__contact {
