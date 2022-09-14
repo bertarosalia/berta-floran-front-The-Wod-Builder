@@ -3,10 +3,8 @@ import { act } from "react-dom/test-utils";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { store } from "../app/store";
-import {
-  deleteExerciseActionCreator,
-  loadAllExercisesactionCreator,
-} from "../features/store/exercises/exercisesSlice";
+import { deleteExerciseActionCreator } from "../features/store/exercises/exercisesSlice";
+import { showLoaderActionCreator } from "../features/store/UI/UISlice";
 import useExercises from "./useExercises";
 
 interface WrapperProps {
@@ -31,39 +29,15 @@ jest.mock("react-redux", () => ({
 }));
 
 describe("Given a useExercises hook", () => {
-  describe("When it´s invoked with his method getAllExercises", () => {
-    test("It should dispatch the fetch response", async () => {
-      const mockedFetchValue = {
-        exercises: [
-          {
-            body: "",
-            name: "",
-            description: "",
-            image: "",
-            id: "",
-          },
-        ],
-      };
-
-      const {
-        result: {
-          current: { getAllExercises },
-        },
-      } = renderHook(useExercises, { wrapper: Wrapper });
-
-      global.fetch = jest.fn().mockResolvedValueOnce({
-        json: jest.fn().mockResolvedValue(mockedFetchValue),
+  describe("When it´s invoked with his method getAllExercises and fetch response with a list of exercises", () => {
+    test("Then dispatch must called with action showLoader", async () => {
+      const { result } = renderHook(() => useExercises(), {
+        wrapper: Wrapper,
       });
 
-      await waitFor(() => {
-        getAllExercises();
-      });
+      await result.current.getAllExercises();
 
-      await waitFor(() => {
-        expect(mockDispatch).toHaveBeenCalledWith(
-          loadAllExercisesactionCreator(mockedFetchValue.exercises)
-        );
-      });
+      expect(mockDispatch).toHaveBeenCalledWith(showLoaderActionCreator());
     });
   });
   describe("When it´s invoked with a delete exercise method with a valid id", () => {
