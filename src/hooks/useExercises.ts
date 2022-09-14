@@ -1,6 +1,5 @@
 import { useCallback } from "react";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../app/hooks";
 import IExercise from "../features/interfaces";
 import {
@@ -27,7 +26,6 @@ export const successModal = (message: string) =>
 
 const useExercises = () => {
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
   const apiUrl = process.env.REACT_APP_API_URL;
 
   const getAllExercises = useCallback(async () => {
@@ -105,10 +103,9 @@ const useExercises = () => {
         errorModal(
           "Ups! Cannot show details from this exercise now. Try again"
         );
-        navigate("/not-found-error");
       }
     },
-    [apiUrl, navigate]
+    [apiUrl]
   );
 
   return {
