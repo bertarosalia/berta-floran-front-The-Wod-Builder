@@ -87,8 +87,7 @@ const CreateExerciseForm = (): JSX.Element => {
                 required
                 placeholder="insert an url"
                 autoComplete="off"
-                pattern=".+\.com"
-                value={newExercise.image}
+                               value={newExercise.image}
                 onChange={onChangeData}
               />
             </div>
