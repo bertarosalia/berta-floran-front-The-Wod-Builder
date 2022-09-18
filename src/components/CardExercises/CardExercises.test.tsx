@@ -23,7 +23,6 @@ describe("Given a Exercises Card component", () => {
       name: "",
       description: "",
       image: "url",
-      id: "15",
     };
     test("It should show an image with the exercise", () => {
       render(
@@ -33,7 +32,6 @@ describe("Given a Exercises Card component", () => {
               name={testExercise.name}
               body={testExercise.body}
               image={testExercise.image}
-              id={testExercise.id}
             ></CardExercises>
           </BrowserRouter>
         </Provider>
@@ -52,12 +50,10 @@ describe("Given a Exercises Card component", () => {
           <Provider store={store}>
             <BrowserRouter>
               <CardExercises
-                key={testExercise.id}
                 name={testExercise.name}
                 body={testExercise.body}
                 description={testExercise.description}
                 image={testExercise.image}
-                id={testExercise.id}
               />
             </BrowserRouter>
           </Provider>
@@ -77,12 +73,10 @@ describe("Given a Exercises Card component", () => {
             <Provider store={store}>
               <BrowserRouter>
                 <CardExercises
-                  key={testExercise.id}
                   name={testExercise.name}
                   body={testExercise.body}
                   description={testExercise.description}
                   image={testExercise.image}
-                  id={testExercise.id}
                 />
               </BrowserRouter>
             </Provider>
