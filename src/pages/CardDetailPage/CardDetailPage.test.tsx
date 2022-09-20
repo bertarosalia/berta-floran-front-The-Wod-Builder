@@ -1,25 +1,69 @@
-import { render, screen } from "@testing-library/react";
-import { Provider } from "react-redux";
-import { BrowserRouter } from "react-router-dom";
-import { store } from "../../app/store";
+import { render, renderHook, screen, waitFor } from "@testing-library/react";
 import CardDetailPage from "./CardDetailPage";
+import useExercises from "../../hooks/useExercises";
+import Wrapper from "../../utils/Wrapper";
 
-describe("Given a Card Detail Page", () => {
-  describe("When it´s rendered", () => {
-    test("It should show an h1 title", () => {
+const exerciseDetail = {
+  name: "snatch",
+  image: "snatchUrl",
+  body: "arms",
+  description: "best exercise",
+};
+
+const mockgetExerciseById = jest.fn().mockResolvedValue(exerciseDetail);
+
+jest.mock("../../hooks/useExercises", () => () => ({
+  getOneExerciseById: mockgetExerciseById,
+}));
+
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useParams: () => ({ idExercise: "125" }),
+}));
+
+const mockedFetchValue = [
+  {
+    exercises: [
+      {
+        body: "",
+        name: "",
+        description: "",
+        image: "",
+        id: "",
+      },
+    ],
+  },
+];
+
+jest.mock("react-redux", () => ({
+  ...jest.requireActual("react-redux"),
+  useSelector: () => mockedFetchValue,
+}));
+
+describe("Given the CardDetailPage", () => {
+  describe("When it's instantiated", () => {
+    test("Then should show exercise name in a heading", async () => {
+      const paramPath = "125";
+
+      const {
+        result: {
+          current: { getOneExerciseById },
+        },
+      } = renderHook(useExercises, { wrapper: Wrapper });
+
+      await waitFor(() => {
+        getOneExerciseById(paramPath);
+      });
       render(
         <>
-          <Provider store={store}>
-            <BrowserRouter>
-              <CardDetailPage />
-            </BrowserRouter>
-          </Provider>
+          <Wrapper>
+            <CardDetailPage />
+          </Wrapper>
         </>
       );
 
-      const expectedResult = screen.getByRole("heading", { name: "" });
-
-      expect(expectedResult).toBeInTheDocument();
+      const CardDetail = screen.getByRole("heading");
+      expect(CardDetail).toBeInTheDocument();
     });
   });
 });
