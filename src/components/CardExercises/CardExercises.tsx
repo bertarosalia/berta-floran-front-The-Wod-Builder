@@ -6,7 +6,7 @@ interface CardExercisesProps {
   name: string;
   description?: string;
   image: string;
-  id?: string;
+  id: string;
 }
 
 const CardExercises = ({
@@ -20,7 +20,7 @@ const CardExercises = ({
   const navigate = useNavigate();
 
   const detailExercise = () => {
-    navigate(`/detail/:${id}`);
+    navigate(`/detail/${id}`);
   };
 
   return (
@@ -47,7 +47,7 @@ const CardExercises = ({
               className="card-button__delete"
               data-testid="icon-trash"
               value="DELETE"
-              onClick={() => deleteExercise(id as string)}
+              onClick={() => deleteExercise(id)}
             />
           </div>
         </div>
