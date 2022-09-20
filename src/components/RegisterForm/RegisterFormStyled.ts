@@ -24,12 +24,12 @@ const RegisterFormStyled = styled.section`
     font-size: 15px;
     font-weight: bolder;
     border-radius: 10px;
-    margin: 10px 0 20px;
+    margin: 10px 0 30px;
     cursor: text;
     text-align: center;
   }
 
-  .repeat_password {
+  .register-form__input--password {
     width: 800px;
     height: 40px;
     background-color: ${styledMainTheme.inputs};
@@ -78,7 +78,10 @@ const RegisterFormStyled = styled.section`
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-left: 190px;
+  }
+
+  .register-form__login-link {
+    margin: 40px;
   }
 `;
 
