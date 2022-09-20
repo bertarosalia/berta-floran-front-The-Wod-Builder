@@ -8,6 +8,7 @@ import CreateExerciseFormPage from "./pages/CreateExerciseFormPage.tsx/CreateExe
 import ListExercisesPage from "./pages/ListExercisesPage/ListExercisePage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import { Toaster } from "react-hot-toast";
+import RegisterFormPage from "./pages/RegisterFormPage/RegisterFormPage";
 
 function App() {
   const { isLoadingShowing } = useAppSelector((state) => state.ui);
@@ -23,8 +24,8 @@ function App() {
         <Route path="*" element={<NotFoundPage />} />
         <Route path="/not-found-error" element={<NotFoundPage />} />
         <Route path="/detail/:id" element={<CardDetailPage />} />
-
         <Route path="/create-exercise" element={<CreateExerciseFormPage />} />
+        <Route path="/sign-up" element={<RegisterFormPage />} />
       </Routes>
       <Footer />
     </>
