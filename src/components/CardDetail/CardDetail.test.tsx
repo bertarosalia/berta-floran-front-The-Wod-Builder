@@ -4,7 +4,7 @@ import CardDetail from "./CardDetail";
 import { BrowserRouter } from "react-router-dom";
 import { store } from "../../app/store";
 import userEvent from "@testing-library/user-event";
-import IExercise from "../../features/interfaces";
+import { IExercise } from "../../features/interfaces";
 
 const mockNavigate = jest.fn();
 
