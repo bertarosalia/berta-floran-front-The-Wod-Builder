@@ -70,7 +70,9 @@ export const RegisterForm = (): JSX.Element => {
               </div>
               <div>
                 <input
-                  className={!isSamePassword ? "password-incorrect" : ""}
+                  className={`register-form__input--password ${
+                    !isSamePassword ? "password-incorrect" : ""
+                  }`}
                   type="password"
                   value={formData.repeat_password}
                   name="repeat_password"
@@ -92,10 +94,9 @@ export const RegisterForm = (): JSX.Element => {
                 </button>
               </div>
             </form>
-            <div className="register-form__footer">
-              <span className="register-form__login">
-                {"Have already account?"}
-                <span className="register-form__login-link">Log in</span>
+            <div className="register-form__login">
+              <span className="register-form__login-link">
+                {"Have already account? SIGN IN"}
               </span>
             </div>
           </div>
