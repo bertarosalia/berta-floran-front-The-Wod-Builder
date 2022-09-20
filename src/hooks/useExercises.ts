@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import toast from "react-hot-toast";
 import { useAppDispatch } from "../app/hooks";
-import IExercise from "../features/interfaces";
+import { IExercise } from "../features/interfaces";
 import {
   createExerciseActionCreator,
   deleteExerciseActionCreator,
@@ -31,32 +31,28 @@ const useExercises = () => {
   const getAllExercises = useCallback(async () => {
     try {
       dispatch(showLoaderActionCreator());
-
-      const response = await fetch(`${apiUrl}/exercises`);
-
+      const response = await fetch(`${apiUrl}exercises`);
       if (!response.ok) {
         throw new Error();
       }
       const data = await response.json();
-
       dispatch(closeLoaderActionCreator());
       dispatch(loadAllExercisesactionCreator(data.exercises));
     } catch {}
   }, [apiUrl, dispatch]);
 
-  const deleteExercise = async (deleteId: string) => {
+  const deleteExercise = async (exerciseId: string) => {
     try {
-      const response = await fetch(`${apiUrl}/:${deleteId}`, {
+      const response = await fetch(`${apiUrl}exercises/${exerciseId}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
         },
       });
-
       if (!response.ok) {
         throw new Error();
       }
-      dispatch(deleteExerciseActionCreator(deleteId));
+      dispatch(deleteExerciseActionCreator(exerciseId));
       successModal(
         "Good news, everyone! Nothing to worry about, exercise has been deleted successfully!"
       );
@@ -67,7 +63,7 @@ const useExercises = () => {
 
   const createExercise = async (newExercise: IExercise) => {
     try {
-      const response = await fetch(`${apiUrl}/create`, {
+      const response = await fetch(`${apiUrl}exercises/create`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -87,24 +83,24 @@ const useExercises = () => {
   };
 
   const getOneExerciseById = useCallback(
-    async (id: string) => {
+    async (exerciseId: string) => {
       try {
-        const response = await fetch(`${apiUrl}/${id}`, {
+        const response = await fetch(`${apiUrl}exercises/${exerciseId}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
           },
         });
-        const idExercise = await response.json();
+        const { exerciseFound } = await response.json();
 
-        return idExercise;
+        dispatch(loadAllExercisesactionCreator([exerciseFound]));
       } catch (error) {
         errorModal(
           "Ups! Cannot show details from this exercise now. Try again"
         );
       }
     },
-    [apiUrl]
+    [dispatch, apiUrl]
   );
 
   return {

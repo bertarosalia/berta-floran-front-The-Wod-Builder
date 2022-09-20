@@ -4,7 +4,7 @@ import CardDetail from "./CardDetail";
 import { BrowserRouter } from "react-router-dom";
 import { store } from "../../app/store";
 import userEvent from "@testing-library/user-event";
-import IExercise from "../../features/interfaces";
+import { IExercise } from "../../features/interfaces";
 
 const mockNavigate = jest.fn();
 
@@ -18,7 +18,6 @@ const testExercise: IExercise = {
   name: "",
   description: "",
   image: "url",
-  id: "15",
 };
 
 describe("Given a card exercise detail", () => {
@@ -31,7 +30,6 @@ describe("Given a card exercise detail", () => {
               name={testExercise.name}
               body={testExercise.body}
               image={testExercise.image}
-              id={testExercise.id}
             />
           </BrowserRouter>
         </Provider>
@@ -51,7 +49,6 @@ describe("Given a card exercise detail", () => {
               name={testExercise.name}
               body={testExercise.body}
               image={testExercise.image}
-              id={testExercise.id}
             />
           </BrowserRouter>
         </Provider>

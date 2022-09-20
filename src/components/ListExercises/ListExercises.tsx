@@ -7,6 +7,7 @@ import ListExercisesStyled from "./ListExercisesStyled";
 
 const ListExercises = (): JSX.Element => {
   const { getAllExercises } = useExercises();
+
   const exercises = useAppSelector((state: RootState) => state.exercises);
 
   useEffect(() => {
@@ -23,11 +24,13 @@ const ListExercises = (): JSX.Element => {
         <ul className="exercises-list">
           {exercises.map((exercise) => (
             <li className="exercises-list__item" key={exercise.id}>
+              console.log(exercise)
               <CardExercises
                 body={exercise.body}
                 name={exercise.name}
                 description={exercise.description}
                 image={exercise.image}
+                id={exercise.id}
               />
             </li>
           ))}

@@ -1,4 +1,4 @@
-interface IExercise {
+export interface IExercise {
   body: string;
   name: string;
   description: string;
@@ -6,4 +6,6 @@ interface IExercise {
   id?: string;
 }
 
-export default IExercise;
+export interface ExerciseFromDB extends IExercise {
+  id: string;
+}

@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { store } from "../../app/store";
-import IExercise from "../../features/interfaces";
+import { ExerciseFromDB } from "../../features/interfaces";
 import CardExercises from "./CardExercises";
 import userEvent from "@testing-library/user-event";
 
@@ -18,12 +18,12 @@ jest.mock("react-router-dom", () => ({
 
 describe("Given a Exercises Card component", () => {
   describe("When is instantiated with an exercise", () => {
-    const testExercise: IExercise = {
+    const testExercise: ExerciseFromDB = {
       body: "",
       name: "",
       description: "",
       image: "url",
-      id: "15",
+      id: "",
     };
     test("It should show an image with the exercise", () => {
       render(
@@ -33,7 +33,7 @@ describe("Given a Exercises Card component", () => {
               name={testExercise.name}
               body={testExercise.body}
               image={testExercise.image}
-              id={testExercise.id}
+              id=""
             ></CardExercises>
           </BrowserRouter>
         </Provider>
@@ -52,12 +52,11 @@ describe("Given a Exercises Card component", () => {
           <Provider store={store}>
             <BrowserRouter>
               <CardExercises
-                key={testExercise.id}
                 name={testExercise.name}
                 body={testExercise.body}
                 description={testExercise.description}
                 image={testExercise.image}
-                id={testExercise.id}
+                id=""
               />
             </BrowserRouter>
           </Provider>
@@ -77,12 +76,11 @@ describe("Given a Exercises Card component", () => {
             <Provider store={store}>
               <BrowserRouter>
                 <CardExercises
-                  key={testExercise.id}
                   name={testExercise.name}
                   body={testExercise.body}
                   description={testExercise.description}
                   image={testExercise.image}
-                  id={testExercise.id}
+                  id=""
                 />
               </BrowserRouter>
             </Provider>
