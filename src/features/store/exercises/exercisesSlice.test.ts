@@ -3,10 +3,10 @@ import exercisesReducer, {
   deleteExerciseActionCreator,
   loadAllExercisesactionCreator,
 } from "./exercisesSlice";
-import IExercise from "../../interfaces";
+import { ExerciseFromDB } from "../../interfaces";
 
 describe("Given an exercises reducer function", () => {
-  const inititialStateExercises: IExercise[] = [];
+  const inititialStateExercises: ExerciseFromDB[] = [];
 
   describe("When is called with an unknown action and the wrong state", () => {
     test("Then it should return the initial state", () => {
@@ -22,7 +22,7 @@ describe("Given an exercises reducer function", () => {
     });
     describe("When is called with a loadAllExercises action and a new exercise state", () => {
       test("Then it should return the new state with the exercises", () => {
-        const newExercises: IExercise[] = [
+        const newExercises: ExerciseFromDB[] = [
           { body: "", name: "", description: "", image: "", id: "" },
         ];
 
@@ -79,9 +79,9 @@ describe("Given an exercises reducer function", () => {
     });
     describe("When it´s called with the create exercise reducer action", () => {
       test("Then it should return an action with a type 'IExercise/createExercise` and an exercise as payload", () => {
-        const inititialStateExercises: IExercise[] = [];
+        const inititialStateExercises: ExerciseFromDB[] = [];
 
-        const exerciseFake: IExercise = {
+        const exerciseFake: ExerciseFromDB = {
           id: "1",
           body: "legs",
           name: "squat",

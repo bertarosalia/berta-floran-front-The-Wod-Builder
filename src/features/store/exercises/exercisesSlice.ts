@@ -1,25 +1,26 @@
-import IExercise from "../../interfaces";
+import { ExerciseFromDB } from "../../interfaces";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-const inititialStateExercises: IExercise[] = [];
+const inititialStateExercises: ExerciseFromDB[] = [];
 
 export const exercisesSlice = createSlice({
   name: "exercises",
   initialState: inititialStateExercises,
   reducers: {
-    loadAllExercises: (_previousState, action: PayloadAction<IExercise[]>) => [
-      ...action.payload,
-    ],
+    loadAllExercises: (
+      _previousState,
+      action: PayloadAction<ExerciseFromDB[]>
+    ) => [...action.payload],
 
     deleteExercise: (
       previousState,
       action: PayloadAction<string>
-    ): IExercise[] =>
+    ): ExerciseFromDB[] =>
       previousState.filter((exercise) => exercise.id !== action.payload),
 
     createExercise: (
-      previousState: IExercise[],
-      action: PayloadAction<IExercise>
+      previousState: ExerciseFromDB[],
+      action: PayloadAction<ExerciseFromDB>
     ) => [...previousState, action.payload],
   },
 });
