@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import toast from "react-hot-toast";
 import { useAppDispatch } from "../app/hooks";
-import IExercise from "../features/interfaces";
+import { IExercise } from "../features/interfaces";
 import {
   createExerciseActionCreator,
   deleteExerciseActionCreator,
@@ -31,14 +31,11 @@ const useExercises = () => {
   const getAllExercises = useCallback(async () => {
     try {
       dispatch(showLoaderActionCreator());
-
       const response = await fetch(`${apiUrl}exercises`);
-
       if (!response.ok) {
         throw new Error();
       }
       const data = await response.json();
-
       dispatch(closeLoaderActionCreator());
       dispatch(loadAllExercisesactionCreator(data.exercises));
     } catch {}
@@ -52,7 +49,6 @@ const useExercises = () => {
           "Content-Type": "application/json",
         },
       });
-
       if (!response.ok) {
         throw new Error();
       }
@@ -95,16 +91,16 @@ const useExercises = () => {
             "Content-Type": "application/json",
           },
         });
-        const idExercise = await response.json();
+        const { exerciseFound } = await response.json();
 
-        return idExercise;
+        dispatch(loadAllExercisesactionCreator([exerciseFound]));
       } catch (error) {
         errorModal(
           "Ups! Cannot show details from this exercise now. Try again"
         );
       }
     },
-    [apiUrl]
+    [dispatch, apiUrl]
   );
 
   return {
