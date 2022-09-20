@@ -24,7 +24,6 @@ const ListExercises = (): JSX.Element => {
         <ul className="exercises-list">
           {exercises.map((exercise) => (
             <li className="exercises-list__item" key={exercise.id}>
-              console.log(exercise)
               <CardExercises
                 body={exercise.body}
                 name={exercise.name}
