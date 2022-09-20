@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useAppSelector } from "../../app/hooks";
+import { RootState } from "../../app/store";
 import CardDetail from "../../components/CardDetail/CardDetail";
-import IExercise from "../../features/interfaces";
+import { ExerciseFromDB } from "../../features/interfaces";
 import useExercises from "../../hooks/useExercises";
 
-const initialState: IExercise = {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const initialState: ExerciseFromDB = {
   body: "",
   name: "",
   description: "",
@@ -15,13 +18,12 @@ const initialState: IExercise = {
 const CardDetailPage = (): JSX.Element => {
   const { getOneExerciseById } = useExercises();
 
-  const [exercise, setExercise] = useState(initialState);
+  const [exercise] = useAppSelector((state: RootState) => state.exercises);
   const { id } = useParams();
 
   useEffect(() => {
     (async () => {
-      const exercise = await getOneExerciseById(id as string);
-      setExercise(exercise);
+      await getOneExerciseById(id as string);
     })();
   }, [getOneExerciseById, id]);
 
