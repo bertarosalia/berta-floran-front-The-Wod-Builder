@@ -119,6 +119,20 @@ describe("Given the Register component", () => {
 
         expect(mockuserRegister).toHaveBeenCalled();
       });
+      describe("When it's called and clicked in the 'X' button", () => {
+        test("Then it should call navigate with param '/exercises'", async () => {
+          render(<RegisterForm />);
+
+          const navigateLink = screen.getByText(
+            "Already have an account? LOG IN"
+          );
+
+          await userEvent.click(navigateLink);
+
+          expect(navigateLink).toBeInTheDocument();
+          await expect(mockNavigate).toHaveBeenCalled();
+        });
+      });
     });
   });
 });
