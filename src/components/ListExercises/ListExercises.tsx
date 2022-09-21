@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useAppSelector } from "../../app/hooks";
 import { RootState } from "../../app/store";
-import useExercises from "../../hooks/useExercises";
+import useExercises from "../../hooks/useExercises/useExercises";
 import CardExercises from "../CardExercises/CardExercises";
 import ListExercisesStyled from "./ListExercisesStyled";
 

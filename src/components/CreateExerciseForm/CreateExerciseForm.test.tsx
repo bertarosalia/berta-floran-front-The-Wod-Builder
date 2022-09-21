@@ -9,7 +9,7 @@ import userEvent from "@testing-library/user-event";
 beforeEach(() => jest.restoreAllMocks());
 const mockCreate = jest.fn();
 
-jest.mock("../../hooks/useExercises", () => () => ({
+jest.mock("../../hooks/useExercises/useExercises", () => () => ({
   createExercise: mockCreate,
 }));
 
