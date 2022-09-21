@@ -12,7 +12,7 @@ const exerciseDetail = {
 
 const mockgetExerciseById = jest.fn().mockResolvedValue(exerciseDetail);
 
-jest.mock("../../hooks/useExercises", () => () => ({
+jest.mock("../../hooks/useExercises/useExercises", () => () => ({
   getOneExerciseById: mockgetExerciseById,
 }));
 

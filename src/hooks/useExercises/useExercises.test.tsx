@@ -22,8 +22,8 @@ jest.mock("react-hot-toast");
 const mockUseDispatch = jest.fn();
 const mockNavigate = jest.fn();
 
-jest.mock("../app/hooks", () => ({
-  ...jest.requireActual("../app/hooks"),
+jest.mock("../../app/hooks", () => ({
+  ...jest.requireActual("../../app/hooks"),
   useAppDispatch: () => mockUseDispatch,
 }));
 

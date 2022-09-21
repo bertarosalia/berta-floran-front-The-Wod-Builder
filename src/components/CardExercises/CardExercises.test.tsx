@@ -7,7 +7,10 @@ import CardExercises from "./CardExercises";
 import userEvent from "@testing-library/user-event";
 
 let mockDeleteExercise = { deleteExercise: jest.fn() };
-jest.mock("../../hooks/useExercises", () => () => mockDeleteExercise);
+jest.mock(
+  "../../hooks/useExercises/useExercises",
+  () => () => mockDeleteExercise
+);
 
 const mockNavigate = jest.fn();
 
