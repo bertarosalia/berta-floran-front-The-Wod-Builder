@@ -1,4 +1,5 @@
 import { SyntheticEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import useUser from "../../hooks/useUsers/useUsers";
 import RegisterFormStyled from "./RegisterFormStyled";
 
@@ -21,6 +22,11 @@ export const RegisterForm = (): JSX.Element => {
     event.preventDefault();
     await userRegister(formData);
     setFormData(initialState);
+  };
+  const navigate = useNavigate();
+
+  const loginRedirect = () => {
+    navigate(`/login`);
   };
 
   const isSamePassword = formData.password === formData.repeat_password;
@@ -103,8 +109,11 @@ export const RegisterForm = (): JSX.Element => {
               </div>
             </form>
             <div className="register-form__login">
-              <span className="register-form__login-link">
-                {"Have already account? SIGN IN"}
+              <span
+                className="register-form__login-link"
+                onClick={loginRedirect}
+              >
+                {"Already have an account? LOG IN"}
               </span>
             </div>
           </div>

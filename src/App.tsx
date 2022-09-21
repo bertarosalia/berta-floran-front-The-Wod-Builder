@@ -26,6 +26,7 @@ function App() {
         <Route path="/detail/:id" element={<CardDetailPage />} />
         <Route path="/create-exercise" element={<CreateExerciseFormPage />} />
         <Route path="/sign-up" element={<RegisterFormPage />} />
+        <Route path="/login" element={<NotFoundPage />} />
       </Routes>
       <Footer />
     </>
