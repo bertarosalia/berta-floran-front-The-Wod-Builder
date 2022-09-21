@@ -15,7 +15,6 @@ beforeEach(() => {
 });
 
 jest.mock("react-hot-toast");
-
 const mockUseDispatch = jest.fn();
 
 jest.mock("../../app/hooks", () => ({
@@ -46,6 +45,31 @@ describe("Given the use users custom hook", () => {
       expect(toast.success).toHaveBeenCalledWith(successModalMessage, {
         duration: 5000,
         position: "top-center",
+      });
+    });
+    describe("When user register it´s called with an invalid user", () => {
+      test("Then it should call the error modal", async () => {
+        const errorUser = {
+          name: "",
+          email: "",
+          password: "",
+          repeat_password: "",
+        };
+        const errorModalMessage =
+          "Uh, no! You need to take action! Something went wrong!";
+
+        const {
+          result: {
+            current: { userRegister },
+          },
+        } = renderHook(useUser, { wrapper: Wrapper });
+
+        await userRegister(errorUser);
+
+        expect(toast.error).toHaveBeenCalledWith(errorModalMessage, {
+          duration: 5000,
+          position: "top-center",
+        });
       });
     });
   });
