@@ -41,4 +41,10 @@ export const handlers = [
   rest.get(`${apiUrl}exercises/errorId`, async (req, res, ctx) => {
     return res(ctx.status(400), ctx.json({ exercise: "error" }));
   }),
+
+  rest.post(`${apiUrl}user/register`, async (req, res, ctx) => {
+    const { name } = await req.json();
+    const status = name === "" ? 400 : 201;
+    return res(ctx.status(status));
+  }),
 ];
