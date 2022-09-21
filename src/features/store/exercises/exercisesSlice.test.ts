@@ -3,7 +3,7 @@ import exercisesReducer, {
   deleteExerciseActionCreator,
   loadAllExercisesactionCreator,
 } from "./exercisesSlice";
-import { ExerciseFromDB } from "../../interfaces";
+import { ExerciseFromDB } from "./model/exercises";
 
 describe("Given an exercises reducer function", () => {
   const inititialStateExercises: ExerciseFromDB[] = [];
