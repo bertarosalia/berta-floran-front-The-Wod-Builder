@@ -1,9 +1,6 @@
 import { renderHook, waitFor } from "@testing-library/react";
 import { act } from "react-dom/test-utils";
-import { Provider } from "react-redux";
-import { BrowserRouter } from "react-router-dom";
-import { store } from "../../app/store";
-import useExercises from "./useExercises";
+import useExercises from "../useExercises/useExercises";
 
 interface WrapperProps {
   children: JSX.Element | JSX.Element[];
@@ -11,13 +8,6 @@ interface WrapperProps {
 
 let Wrapper: ({ children }: WrapperProps) => JSX.Element;
 
-Wrapper = ({ children }: WrapperProps): JSX.Element => {
-  return (
-    <Provider store={store}>
-      <BrowserRouter>{children}</BrowserRouter>
-    </Provider>
-  );
-};
 jest.mock("react-hot-toast");
 const mockUseDispatch = jest.fn();
 const mockNavigate = jest.fn();

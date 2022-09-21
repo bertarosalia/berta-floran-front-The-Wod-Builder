@@ -1,7 +1,12 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-
 import RegisterForm from "./RegisterForm";
+
+const mockuserRegister = jest.fn();
+
+jest.mock("../../hooks/useUsers/useUsers", () => () => ({
+  userRegister: mockuserRegister,
+}));
 
 describe("Given the Register component", () => {
   describe("When it's instantiated", () => {
@@ -9,8 +14,12 @@ describe("Given the Register component", () => {
     const emailPlaceholder = "Email";
     const passwordPlaceholder = "Password";
     const passwordRepeatPlaceholder = "Repeat password";
+    const nameTextInput = "Iván";
+    const emailTextInput = "ivan@hotmail.com";
+    const passwordTextInput = "12345";
+    const passwordRepeatTextInput = "12345";
 
-    test("Then should show name and password inputs", () => {
+    test("Then should show name, email, password and password repeat inputs", () => {
       render(<RegisterForm />);
       const nameInput = screen.getByPlaceholderText(namePlaceholder);
       const userEmailInput = screen.getByPlaceholderText(emailPlaceholder);
@@ -27,8 +36,6 @@ describe("Given the Register component", () => {
 
     describe("And user type 'Iván' in name input", () => {
       test("Then should show 'Iván' in name input", async () => {
-        const nameTextInput = "Iván";
-
         render(<RegisterForm />);
 
         const nameInput = screen.getByPlaceholderText(namePlaceholder);
@@ -64,10 +71,8 @@ describe("Given the Register component", () => {
       });
     });
 
-    describe("And user type 'patatasfritas' in repeat password input", () => {
-      test("Then should show 'patatasfritas' in repeat password input", async () => {
-        const passwordRepeatTextInput = "patatasfritas";
-
+    describe("And user type '12345' in repeat password input", () => {
+      test("Then should show '12345' in repeat password input", async () => {
         render(<RegisterForm />);
 
         const passwordRepeatInput = screen.getByPlaceholderText(
@@ -76,6 +81,36 @@ describe("Given the Register component", () => {
         await userEvent.type(passwordRepeatInput, passwordRepeatTextInput);
 
         expect(passwordRepeatInput).toHaveValue(passwordRepeatTextInput);
+      });
+    });
+    describe("And user doesn´t type and click on register button", () => {
+      test("Then it doesn´t call userRegister function", async () => {
+        render(<RegisterForm />);
+        const button = screen.getByRole("button", { name: "SIGN UP" });
+
+        await userEvent.click(button);
+
+        expect(mockuserRegister).not.toHaveBeenCalled();
+      });
+    });
+    describe("And user types correctly in form and click on register button", () => {
+      test("Then it call userRegister function", async () => {
+        render(<RegisterForm />);
+        const button = screen.getByRole("button", { name: "SIGN UP" });
+        const nameInput = screen.getByPlaceholderText(namePlaceholder);
+        const emailInput = screen.getByPlaceholderText(emailPlaceholder);
+        const passwordInput = screen.getByPlaceholderText(passwordPlaceholder);
+        const passwordRepeatInput = screen.getByPlaceholderText(
+          passwordRepeatPlaceholder
+        );
+
+        await userEvent.type(nameInput, nameTextInput);
+        await userEvent.type(emailInput, emailTextInput);
+        await userEvent.type(passwordInput, passwordTextInput);
+        await userEvent.type(passwordRepeatInput, passwordRepeatTextInput);
+        await userEvent.click(button);
+
+        expect(mockuserRegister).toHaveBeenCalled();
       });
     });
   });

@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { SyntheticEvent, useState } from "react";
+import useUser from "../../hooks/useUsers/useUsers";
 import RegisterFormStyled from "./RegisterFormStyled";
 
 export const RegisterForm = (): JSX.Element => {
@@ -10,9 +11,16 @@ export const RegisterForm = (): JSX.Element => {
   };
 
   const [formData, setFormData] = useState(initialState);
+  const { userRegister } = useUser();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
+  };
+
+  const handleSubmit = async (event: SyntheticEvent) => {
+    event.preventDefault();
+    await userRegister(formData);
+    setFormData(initialState);
   };
 
   const isSamePassword = formData.password === formData.repeat_password;
@@ -31,7 +39,7 @@ export const RegisterForm = (): JSX.Element => {
           <h1 className="register-form__title">{"Join us !"}</h1>
 
           <div className="register-form__inputs--container">
-            <form onSubmit={() => {}} noValidate>
+            <form onSubmit={handleSubmit} noValidate>
               <div>
                 <input
                   className="register-form__input"
