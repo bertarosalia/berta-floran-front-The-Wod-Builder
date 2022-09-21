@@ -1,16 +1,16 @@
 import { useCallback } from "react";
 import toast from "react-hot-toast";
-import { useAppDispatch } from "../app/hooks";
-import { IExercise } from "../features/interfaces";
+import { useAppDispatch } from "../../app/hooks";
+import { IExercise } from "../../features/store/exercises/model/exercises";
 import {
   createExerciseActionCreator,
   deleteExerciseActionCreator,
   loadAllExercisesactionCreator,
-} from "../features/store/exercises/exercisesSlice";
+} from "../../features/store/exercises/exercisesSlice";
 import {
   closeLoaderActionCreator,
   showLoaderActionCreator,
-} from "../features/store/UI/UISlice";
+} from "../../features/store/UI/UISlice";
 
 export const errorModal = (error: string) =>
   toast.error(error, {

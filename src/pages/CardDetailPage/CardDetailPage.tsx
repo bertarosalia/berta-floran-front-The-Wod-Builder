@@ -3,8 +3,8 @@ import { useParams } from "react-router-dom";
 import { useAppSelector } from "../../app/hooks";
 import { RootState } from "../../app/store";
 import CardDetail from "../../components/CardDetail/CardDetail";
-import { ExerciseFromDB } from "../../features/interfaces";
-import useExercises from "../../hooks/useExercises";
+import { ExerciseFromDB } from "../../features/store/exercises/model/exercises";
+import useExercises from "../../hooks/useExercises/useExercises";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const initialState: ExerciseFromDB = {

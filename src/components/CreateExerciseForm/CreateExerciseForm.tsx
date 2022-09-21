@@ -1,5 +1,5 @@
 import React, { SyntheticEvent, useState } from "react";
-import useExercises from "../../hooks/useExercises";
+import useExercises from "../../hooks/useExercises/useExercises";
 import Button from "../Button/Button";
 import CreateExerciseFormStyle from "./CreateExerciseFormStyle";
 

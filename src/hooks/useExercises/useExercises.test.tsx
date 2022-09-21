@@ -2,8 +2,9 @@ import { renderHook, waitFor } from "@testing-library/react";
 import { act } from "react-dom/test-utils";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import { store } from "../app/store";
+import { store } from "../../app/store";
 import useExercises from "./useExercises";
+
 interface WrapperProps {
   children: JSX.Element | JSX.Element[];
 }

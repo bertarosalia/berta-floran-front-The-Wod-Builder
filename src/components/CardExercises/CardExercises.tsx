@@ -1,5 +1,5 @@
 import CardExercisesStyled from "./CardExercisesStyled";
-import useExercises from "../../hooks/useExercises";
+import useExercises from "../../hooks/useExercises/useExercises";
 import { useNavigate } from "react-router-dom";
 interface CardExercisesProps {
   body: string;

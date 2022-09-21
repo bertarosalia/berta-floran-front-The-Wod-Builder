@@ -1,6 +1,6 @@
 import { render, renderHook, screen, waitFor } from "@testing-library/react";
 import CardDetailPage from "./CardDetailPage";
-import useExercises from "../../hooks/useExercises";
+import useExercises from "../../hooks/useExercises/useExercises";
 import Wrapper from "../../utils/Wrapper";
 
 const exerciseDetail = {
