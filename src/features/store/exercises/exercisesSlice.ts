@@ -1,4 +1,4 @@
-import { ExerciseFromDB } from "../../interfaces";
+import { ExerciseFromDB } from "./model/exercises";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const inititialStateExercises: ExerciseFromDB[] = [];

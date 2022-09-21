@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { store } from "../../app/store";
-import { ExerciseFromDB } from "../../features/interfaces";
+import { ExerciseFromDB } from "../../features/store/exercises/model/exercises";
 import CardExercises from "./CardExercises";
 import userEvent from "@testing-library/user-event";
 
