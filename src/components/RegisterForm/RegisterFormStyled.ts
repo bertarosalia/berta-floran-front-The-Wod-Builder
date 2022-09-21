@@ -80,8 +80,14 @@ const RegisterFormStyled = styled.section`
     flex-direction: column;
   }
 
-  .register-form__login-link {
-    margin: 40px;
+  .register-form__login {
+    margin-bottom: 30px;
+    cursor: pointer;
+    font-size: 18px;
+    color: ${styledMainTheme.white};
+    &:hover {
+      font-weight: bold;
+    }
   }
 `;
 
