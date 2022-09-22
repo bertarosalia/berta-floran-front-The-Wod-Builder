@@ -1,5 +1,6 @@
 import { renderHook, waitFor } from "@testing-library/react";
 import { act } from "react-dom/test-utils";
+import { showLoaderActionCreator } from "../../features/store/UI/UISlice";
 import useExercises from "../useExercises/useExercises";
 
 interface WrapperProps {
@@ -68,6 +69,23 @@ describe("Given a useExercises hook", () => {
 
         await waitFor(() => {
           expect(mockUseDispatch).toHaveBeenCalled();
+        });
+      });
+      test("Then it should send a loading modal", async () => {
+        const {
+          result: {
+            current: { getAllExercises },
+          },
+        } = renderHook(useExercises, { wrapper: Wrapper });
+
+        await act(async () => {
+          await getAllExercises();
+        });
+
+        await waitFor(() => {
+          expect(mockUseDispatch).toHaveBeenCalledWith(
+            showLoaderActionCreator()
+          );
         });
       });
     });
