@@ -119,8 +119,8 @@ describe("Given the Register component", () => {
 
         expect(mockuserRegister).toHaveBeenCalled();
       });
-      describe("When it's called and clicked in the 'X' button", () => {
-        test("Then it should call navigate with param '/exercises'", async () => {
+      describe("When it's called and clicked in the 'LOG IN' button", () => {
+        test("Then it should call navigate with param '/login'", async () => {
           render(<RegisterForm />);
 
           const navigateLink = screen.getByText(

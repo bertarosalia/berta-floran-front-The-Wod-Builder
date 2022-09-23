@@ -9,6 +9,7 @@ import ListExercisesPage from "./pages/ListExercisesPage/ListExercisePage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import { Toaster } from "react-hot-toast";
 import RegisterFormPage from "./pages/RegisterFormPage/RegisterFormPage";
+import LoginFormPage from "./pages/LoginFormPage/LoginFormPage";
 
 function App() {
   const { isLoadingShowing } = useAppSelector((state) => state.ui);
@@ -26,7 +27,7 @@ function App() {
         <Route path="/detail/:id" element={<CardDetailPage />} />
         <Route path="/create-exercise" element={<CreateExerciseFormPage />} />
         <Route path="/sign-up" element={<RegisterFormPage />} />
-        <Route path="/login" element={<NotFoundPage />} />
+        <Route path="/login" element={<LoginFormPage />} />
       </Routes>
       <Footer />
     </>

@@ -6,12 +6,14 @@ const LoginFormStyled = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: 40px;
   }
 
   .login-form__title {
     color: ${styledMainTheme.white};
     text-align: center;
     font-size: 25px;
+    margin-bottom: 30px;
   }
 
   .login-form__inputs--container {
@@ -34,6 +36,12 @@ const LoginFormStyled = styled.div`
   }
 
   .login-form__button {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .login-user__button {
     border-radius: 10px;
     border: none;
     outline: none;
@@ -47,10 +55,21 @@ const LoginFormStyled = styled.div`
     background-color: ${styledMainTheme.buttonBig};
     cursor: pointer;
     margin: 20px;
+    margin-bottom: 40px;
 
     &:hover {
       background-color: inherit;
       outline: auto;
+    }
+  }
+
+  .login-form__register {
+    margin-bottom: 30px;
+    cursor: pointer;
+    font-size: 18px;
+    color: ${styledMainTheme.white};
+    &:hover {
+      font-weight: bold;
     }
   }
 `;

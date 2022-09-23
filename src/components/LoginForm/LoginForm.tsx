@@ -1,4 +1,5 @@
 import React, { SyntheticEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import LoginFormStyled from "./LoginFormStyled";
 
 const LoginForm = () => {
@@ -23,6 +24,12 @@ const LoginForm = () => {
   const isFormValid =
     formData.email.length > minLength && formData.password.length > minLength;
 
+  const navigate = useNavigate();
+
+  const registerRedirect = () => {
+    navigate(`/sign-up`);
+  };
+
   return (
     <LoginFormStyled>
       <div className="login-form__container">
@@ -35,7 +42,7 @@ const LoginForm = () => {
                 type={"text"}
                 value={formData.email}
                 name="email"
-                placeholder="email"
+                placeholder="Email"
                 onChange={handleChange}
                 autoComplete="off"
                 required
@@ -43,10 +50,11 @@ const LoginForm = () => {
             </div>
             <div>
               <input
+                className="login-form__input"
                 type={"text"}
                 value={formData.password}
                 name="password"
-                placeholder="password"
+                placeholder="Password"
                 onChange={handleChange}
                 autoComplete="off"
                 required
@@ -54,7 +62,7 @@ const LoginForm = () => {
             </div>
             <div className="login-form__button">
               <button
-                className={`login-form__button${
+                className={`login-user__button${
                   !isFormValid ? " button-disabled" : ""
                 }`}
                 type="submit"
@@ -64,6 +72,14 @@ const LoginForm = () => {
               </button>
             </div>
           </form>
+          <div className="login-form__register">
+            <span
+              className="login-form__register-link"
+              onClick={registerRedirect}
+            >
+              {"Don´t have an account? SIGN UP"}
+            </span>
+          </div>
         </div>
       </div>
     </LoginFormStyled>
