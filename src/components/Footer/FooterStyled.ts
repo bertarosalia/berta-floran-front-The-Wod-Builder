@@ -10,6 +10,11 @@ const FooterStyled = styled.footer`
     align-content: space-between;
     justify-content: space-around;
     gap: 16px;
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+    }
   }
 
   .footer__contact {
@@ -17,6 +22,9 @@ const FooterStyled = styled.footer`
     flex-direction: column;
     font-size: 16px;
     margin-bottom: 30px;
+    @media (max-width: 768px) {
+      margin-bottom: 0;
+    }
   }
 
   .footer__contact--details {
@@ -30,6 +38,9 @@ const FooterStyled = styled.footer`
     width: 300px;
     cursor: pointer;
     margin: 20px;
+    @media (max-width: 768px) {
+      margin: 0;
+    }
   }
 
   .footer__icon {
@@ -38,6 +49,9 @@ const FooterStyled = styled.footer`
     margin: 15px;
     margin-top: 45px;
     cursor: pointer;
+    @media (max-width: 768px) {
+      margin-top: 0;
+    }
   }
 
   .footer__icon--instagram {
