@@ -3,7 +3,10 @@ import { act } from "react-dom/test-utils";
 import toast from "react-hot-toast";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import { deleteExerciseActionCreator } from "../../features/store/exercises/exercisesSlice";
+import {
+  deleteExerciseActionCreator,
+  loadAllExercisesactionCreator,
+} from "../../features/store/exercises/exercisesSlice";
 import { store } from "../../features/store/store";
 import { showLoaderActionCreator } from "../../features/store/UI/UISlice";
 import useExercises from "../useExercises/useExercises";
@@ -51,12 +54,14 @@ describe("Given a useExercises hook", () => {
     name: "",
     description: "",
     image: "",
-    id: "",
+    id: "125",
   };
 
   global.fetch = jest.fn().mockReturnValue({
     json: jest.fn().mockReturnValue(exercise),
   });
+
+  const mockId = "125";
 
   describe("When its function createExercise is called", () => {
     test("It should send FormData passed as arguments to the DB", async () => {
@@ -114,7 +119,6 @@ describe("Given a useExercises hook", () => {
           await act(async () => {
             await deleteExercise("wrongId");
           });
-          const mockId = "jbhbhbh";
           await waitFor(() => {
             expect(mockDispatch).not.toHaveBeenCalledWith(
               deleteExerciseActionCreator(mockId)
@@ -139,23 +143,24 @@ describe("Given a useExercises hook", () => {
           }
         );
       });
-      describe("When it's invoked with getOneExerciseById with the correct id", () => {});
-      test("And if the id is not correct it should call the error modal", async () => {
-        const {
-          result: {
-            current: { getOneExerciseById },
-          },
-        } = renderHook(useExercises, { wrapper: Wrapper });
+      describe("When it's invoked with getOneExerciseById", () => {
+        test("And if the id is not correct it should call the error modal", async () => {
+          const {
+            result: {
+              current: { getOneExerciseById },
+            },
+          } = renderHook(useExercises, { wrapper: Wrapper });
 
-        await getOneExerciseById("123");
+          await getOneExerciseById("123");
 
-        await expect(toast.error).toHaveBeenCalledWith(
-          "Ups! Cannot show details from this exercise now. Try again",
-          {
-            position: "top-center",
-            duration: 5000,
-          }
-        );
+          await expect(toast.error).toHaveBeenCalledWith(
+            "Ups! Cannot show details from this exercise now. Try again",
+            {
+              position: "top-center",
+              duration: 5000,
+            }
+          );
+        });
       });
     });
   });
