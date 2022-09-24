@@ -38,7 +38,9 @@ const useExercises = () => {
       const data = await response.json();
       dispatch(closeLoaderActionCreator());
       dispatch(loadAllExercisesactionCreator(data.exercises));
-    } catch {}
+    } catch (error) {
+      errorModal("Ups! Cannot show exercise now. Try again");
+    }
   }, [apiUrl, dispatch]);
 
   const deleteExercise = async (exerciseId: string) => {
