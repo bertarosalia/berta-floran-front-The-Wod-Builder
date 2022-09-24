@@ -2,8 +2,6 @@ import styledMainTheme from "../../styledMainTheme";
 import styled from "styled-components";
 
 export const NavigationStyled = styled.div`
-  background-color: ${styledMainTheme.navigation};
-
   .nav-links {
     text-decoration: none;
     color: ${styledMainTheme.black};
@@ -20,7 +18,14 @@ export const NavigationStyled = styled.div`
     list-style: none;
     align-items: center;
     justify-content: space-around;
-    padding: 30px;
+    background-color: ${styledMainTheme.navigation};
+    width: max-content;
+    @media (max-width: 320px) {
+      height: 100%;
+      padding: 16px;
+      gap: 16px;
+      flex-direction: column;
+    }
   }
 
   .logo__image {
