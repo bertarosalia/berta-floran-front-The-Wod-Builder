@@ -27,6 +27,9 @@ const RegisterFormStyled = styled.section`
     margin: 10px 0 30px;
     cursor: text;
     text-align: center;
+    @media (max-width: 768px) {
+      width: 500px;
+    }
   }
 
   .register-form__input--password {
@@ -40,6 +43,9 @@ const RegisterFormStyled = styled.section`
     margin: 10px 0 20px;
     cursor: text;
     text-align: center;
+    @media (max-width: 768px) {
+      width: 500px;
+    }
   }
 
   .create-form__label {
