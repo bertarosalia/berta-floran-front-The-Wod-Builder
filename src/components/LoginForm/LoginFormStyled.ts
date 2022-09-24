@@ -33,7 +33,7 @@ const LoginFormStyled = styled.div`
     margin: 10px 0 30px;
     cursor: text;
     text-align: center;
-    @media (max-width: 768px) {
+    @media (max-width: 320px) {
       width: 500px;
     }
   }
