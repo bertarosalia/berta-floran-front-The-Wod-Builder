@@ -1,27 +1,42 @@
 import { renderHook, waitFor } from "@testing-library/react";
 import { act } from "react-dom/test-utils";
+import toast from "react-hot-toast";
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
+import { deleteExerciseActionCreator } from "../../features/store/exercises/exercisesSlice";
+import { store } from "../../features/store/store";
 import { showLoaderActionCreator } from "../../features/store/UI/UISlice";
 import useExercises from "../useExercises/useExercises";
 
 interface WrapperProps {
   children: JSX.Element | JSX.Element[];
 }
-
 let Wrapper: ({ children }: WrapperProps) => JSX.Element;
 
+Wrapper = ({ children }: WrapperProps): JSX.Element => {
+  return (
+    <Provider store={store}>
+      <BrowserRouter>{children}</BrowserRouter>
+    </Provider>
+  );
+};
+
 jest.mock("react-hot-toast");
-const mockUseDispatch = jest.fn();
+
+const mockDispatch = jest.fn();
 const mockNavigate = jest.fn();
 
-jest.mock("../../app/hooks", () => ({
-  ...jest.requireActual("../../app/hooks"),
-  useAppDispatch: () => mockUseDispatch,
+jest.mock("react-redux", () => ({
+  ...jest.requireActual("react-redux"),
+  useDispatch: () => mockDispatch,
 }));
 
 jest.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"),
   useNavigate: () => mockNavigate,
 }));
+
+beforeEach(() => jest.clearAllMocks());
 
 describe("Given a useExercises hook", () => {
   const mockExerciseFormData = new FormData();
@@ -55,6 +70,7 @@ describe("Given a useExercises hook", () => {
       });
       expect(global.fetch).toHaveBeenCalled();
     });
+
     describe("When it's invoked with getAllExercises method", () => {
       test("Then it should dispatch all exercises received", async () => {
         const {
@@ -68,7 +84,7 @@ describe("Given a useExercises hook", () => {
         });
 
         await waitFor(() => {
-          expect(mockUseDispatch).toHaveBeenCalled();
+          expect(mockDispatch).toHaveBeenCalled();
         });
       });
       test("Then it should send a loading modal", async () => {
@@ -83,10 +99,63 @@ describe("Given a useExercises hook", () => {
         });
 
         await waitFor(() => {
-          expect(mockUseDispatch).toHaveBeenCalledWith(
-            showLoaderActionCreator()
-          );
+          expect(mockDispatch).toHaveBeenCalledWith(showLoaderActionCreator());
         });
+      });
+
+      describe("When it´s invoked with an invalid exercise id", () => {
+        test("Then it should not dispatch the delete action", async () => {
+          const {
+            result: {
+              current: { deleteExercise },
+            },
+          } = renderHook(useExercises);
+
+          await act(async () => {
+            await deleteExercise("wrongId");
+          });
+          const mockId = "jbhbhbh";
+          await waitFor(() => {
+            expect(mockDispatch).not.toHaveBeenCalledWith(
+              deleteExerciseActionCreator(mockId)
+            );
+          });
+        });
+      });
+      test("And if it receive an error it should call the error modal", async () => {
+        const {
+          result: {
+            current: { deleteExercise },
+          },
+        } = renderHook(useExercises, { wrapper: Wrapper });
+
+        await deleteExercise("123");
+
+        await expect(toast.error).toHaveBeenCalledWith(
+          "Uh, no! You need to take action! Something went wrong!",
+          {
+            position: "top-center",
+            duration: 5000,
+          }
+        );
+      });
+      describe("When it's invoked with getOneExerciseById with the correct id", () => {});
+      test("And if the id is not correct it should call the error modal", async () => {
+        const {
+          result: {
+            current: { getOneExerciseById },
+          },
+        } = renderHook(useExercises, { wrapper: Wrapper });
+
+        await getOneExerciseById("123");
+
+        await expect(toast.error).toHaveBeenCalledWith(
+          "Ups! Cannot show details from this exercise now. Try again",
+          {
+            position: "top-center",
+            duration: 5000,
+          }
+        );
       });
     });
   });
