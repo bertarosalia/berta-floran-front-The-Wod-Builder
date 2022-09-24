@@ -33,6 +33,9 @@ const LoginFormStyled = styled.div`
     margin: 10px 0 30px;
     cursor: text;
     text-align: center;
+    @media (max-width: 768px) {
+      width: 500px;
+    }
   }
 
   .login-form__button {
