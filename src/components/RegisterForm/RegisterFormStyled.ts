@@ -27,7 +27,7 @@ const RegisterFormStyled = styled.section`
     margin: 10px 0 30px;
     cursor: text;
     text-align: center;
-    @media (max-width: 768px) {
+    @media (max-width: 320px) {
       width: 500px;
     }
   }
@@ -43,7 +43,7 @@ const RegisterFormStyled = styled.section`
     margin: 10px 0 20px;
     cursor: text;
     text-align: center;
-    @media (max-width: 768px) {
+    @media (max-width: 320px) {
       width: 500px;
     }
   }
