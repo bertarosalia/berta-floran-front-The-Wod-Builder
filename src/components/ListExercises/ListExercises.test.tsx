@@ -24,7 +24,7 @@ jest.mock("react-redux", () => ({
 
 describe("Given a exercises list component", () => {
   describe("When it's instantiated", () => {
-    test("Then it should show a heading", async () => {
+    test("Then it should show an image", async () => {
       const {
         result: {
           current: { getAllExercises },
@@ -42,7 +42,7 @@ describe("Given a exercises list component", () => {
         </>
       );
 
-      const exercisesList = screen.getByRole("heading");
+      const exercisesList = screen.getByRole("img");
       expect(exercisesList).toBeInTheDocument();
     });
   });
