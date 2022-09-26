@@ -7,7 +7,7 @@ describe("Given a user reducer function", () => {
       const previousUserState: userLoginState = {
         isLogged: false,
         user: {
-          name: "",
+          email: "",
         },
       };
       const wrongState = undefined;
@@ -23,17 +23,17 @@ describe("Given a user reducer function", () => {
       const previousUserState: userLoginState = {
         isLogged: false,
         user: {
-          name: "",
+          email: "",
         },
       };
       const userPayload = {
         type: "user/loginUser",
-        payload: { name: "Manuela" },
+        payload: { email: "manuela@manuela.com" },
       };
 
       const newStateExpected: userLoginState = {
         isLogged: true,
-        user: { name: "Manuela" },
+        user: { email: "manuela@manuela.com" },
       };
 
       const newState = userReducer(previousUserState, userPayload);
@@ -46,7 +46,7 @@ describe("Given a user reducer function", () => {
       const previousUserState: userLoginState = {
         isLogged: true,
         user: {
-          name: "Manuela",
+          email: "manuela@manuela.com",
         },
       };
       const userPayload = {
@@ -55,7 +55,7 @@ describe("Given a user reducer function", () => {
       const newStateExpected: userLoginState = {
         isLogged: false,
         user: {
-          name: "",
+          email: "",
         },
       };
 
