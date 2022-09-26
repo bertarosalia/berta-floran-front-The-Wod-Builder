@@ -16,9 +16,13 @@ const userSlice = createSlice({
       isLogged: true,
       user: { ...action.payload },
     }),
+    logoutUser: (_previousUI: userLoginState) => ({ ...userInitialState }),
   },
 });
 
 export const userReducer = userSlice.reducer;
 
-export const { loginUser: logiUserActionCreator } = userSlice.actions;
+export const {
+  loginUser: logiUserActionCreator,
+  logoutUser: logoutUserActionCreator,
+} = userSlice.actions;
