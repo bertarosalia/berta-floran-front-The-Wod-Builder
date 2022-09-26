@@ -6,12 +6,17 @@ export interface ProtoUser {
 }
 
 export interface User {
-  name: string;
+  email: string;
 }
 
 export interface userLoginState {
   isLogged: boolean;
   user: {
-    name: string;
+    email: string;
   };
+}
+
+export interface UserLogin {
+  email: string;
+  password: string;
 }
