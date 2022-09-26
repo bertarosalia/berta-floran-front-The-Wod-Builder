@@ -1,11 +1,6 @@
 import styled from "styled-components";
-import styledMainTheme from "../../styledMainTheme";
 
 const ListExercisesStyled = styled.main`
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-
   .exercises-list {
     display: flex;
     list-style: none;
@@ -18,9 +13,9 @@ const ListExercisesStyled = styled.main`
       padding: 20px;
       margin-bottom: 30px;
     }
-    &__title {
-      text-align: center;
-      color: ${styledMainTheme.white};
+
+    @media (max-width: 320px) {
+      flex-direction: column;
     }
   }
 `;
