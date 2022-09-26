@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import { store } from "../../features/store/store";
+import { store } from "../../app/store";
 import LoginFormPage from "./LoginFormPage";
 
 describe("Given a login form page", () => {
