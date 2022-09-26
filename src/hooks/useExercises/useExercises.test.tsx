@@ -3,10 +3,7 @@ import { act } from "react-dom/test-utils";
 import toast from "react-hot-toast";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import {
-  deleteExerciseActionCreator,
-  loadAllExercisesactionCreator,
-} from "../../features/store/exercises/exercisesSlice";
+import { deleteExerciseActionCreator } from "../../features/store/exercises/exercisesSlice";
 import { store } from "../../features/store/store";
 import { showLoaderActionCreator } from "../../features/store/UI/UISlice";
 import useExercises from "../useExercises/useExercises";
