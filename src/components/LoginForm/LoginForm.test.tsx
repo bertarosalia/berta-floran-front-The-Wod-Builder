@@ -1,5 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import UserEvent from "@testing-library/user-event";
+import { Provider } from "react-redux";
+import { store } from "../../app/store";
 import LoginForm from "./LoginForm";
 
 const mockNavigate = jest.fn();
@@ -18,7 +20,11 @@ describe("Given a login form component", () => {
     const userPasswordTextInput = "123456";
 
     test("It should show email and password inputs", () => {
-      render(<LoginForm />);
+      render(
+        <Provider store={store}>
+          <LoginForm />
+        </Provider>
+      );
       const userEmailInput = screen.getByPlaceholderText(emailPlaceholder);
       const userPasswordInput =
         screen.getByPlaceholderText(passwordPlaceholder);
@@ -28,7 +34,11 @@ describe("Given a login form component", () => {
     });
     describe("And user type 'manuela@manuela.com' in email input", () => {
       test("Then should show 'manuela@manuela.com' in email input", async () => {
-        render(<LoginForm />);
+        render(
+          <Provider store={store}>
+            <LoginForm />
+          </Provider>
+        );
 
         const userEmailInput = screen.getByPlaceholderText(emailPlaceholder);
 
@@ -39,7 +49,11 @@ describe("Given a login form component", () => {
     });
     describe("And user type '123456' in password input", () => {
       test("Then it should show '123456' in password input", async () => {
-        render(<LoginForm />);
+        render(
+          <Provider store={store}>
+            <LoginForm />
+          </Provider>
+        );
 
         const passwordInput = screen.getByPlaceholderText(passwordPlaceholder);
 
@@ -49,7 +63,11 @@ describe("Given a login form component", () => {
       });
       describe("When it's called and clicked in the 'SIGN UP' button", () => {
         test("Then it should call navigate with param '/sign-up'", async () => {
-          render(<LoginForm />);
+          render(
+            <Provider store={store}>
+              <LoginForm />
+            </Provider>
+          );
 
           const navigateLink = screen.getByText(
             "Don´t have an account? SIGN UP"
