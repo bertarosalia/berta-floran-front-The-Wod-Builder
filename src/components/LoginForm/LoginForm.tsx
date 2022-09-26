@@ -1,5 +1,6 @@
 import React, { SyntheticEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import useUser from "../../hooks/useUsers/useUsers";
 import LoginFormStyled from "./LoginFormStyled";
 
 const LoginForm = () => {
@@ -11,6 +12,7 @@ const LoginForm = () => {
   const minLength = 5;
 
   const [formData, setFormData] = useState(initialState);
+  const { userLogin } = useUser();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
@@ -18,6 +20,7 @@ const LoginForm = () => {
 
   const handleSubmit = async (event: SyntheticEvent) => {
     event.preventDefault();
+    await userLogin(formData);
     setFormData(initialState);
   };
 
