@@ -5,7 +5,7 @@ import { userReducer } from "../features/store/users/userSlice";
 
 export const store = configureStore({
   reducer: {
-    exercisesReducer: exercisesReducer,
+    exercises: exercisesReducer,
     ui: UIReducer,
     user: userReducer,
   },
