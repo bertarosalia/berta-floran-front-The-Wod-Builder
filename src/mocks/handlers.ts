@@ -114,7 +114,7 @@ export const handlers = [
   }),
 
   rest.post(
-    `${process.env.REACT_APP_API_URL}users/login`,
+    `${process.env.REACT_APP_API_URL}user/login`,
     async (req, res, ctx) => {
       const body = await req.json();
       if (!body.email || !body.password) {
