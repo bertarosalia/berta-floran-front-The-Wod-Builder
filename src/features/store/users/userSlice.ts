@@ -4,7 +4,7 @@ import { User, userLoginState } from "./model/user";
 const userInitialState: userLoginState = {
   isLogged: false,
   user: {
-    name: "",
+    email: "",
   },
 };
 
@@ -23,6 +23,6 @@ const userSlice = createSlice({
 export const userReducer = userSlice.reducer;
 
 export const {
-  loginUser: logiUserActionCreator,
+  loginUser: loginUserActionCreator,
   logoutUser: logoutUserActionCreator,
 } = userSlice.actions;

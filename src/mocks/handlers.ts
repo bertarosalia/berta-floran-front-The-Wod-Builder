@@ -112,4 +112,28 @@ export const handlers = [
     const status = name === "" ? 400 : 201;
     return res(ctx.status(status));
   }),
+
+  rest.post(
+    `${process.env.REACT_APP_API_URL}user/login`,
+    async (req, res, ctx) => {
+      const body = await req.json();
+      if (!body.email || !body.password) {
+        return res(
+          ctx.status(400),
+          ctx.json({
+            error: "Wrong data",
+          })
+        );
+      }
+      return res(
+        ctx.status(200),
+        ctx.json({
+          user: {
+            token:
+              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMTBjMWViM2E4ZDdlMDg4YzU2NDU1YiIsInVzZXJOYW1lIjoidGVzdExvZ2luIiwiaWF0IjoxNjYyNDc2MTc5fQ.QthCeuT1iSEUp29Px9tayUBQEBUjzr08pdFkPozDsc0",
+          },
+        })
+      );
+    }
+  ),
 ];
