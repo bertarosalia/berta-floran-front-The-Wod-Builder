@@ -19,8 +19,6 @@ const ListExercises = (): JSX.Element => {
   return (
     <>
       <ListExercisesStyled>
-        <h1 className="exercises-list__title">Exercises</h1>
-
         <ul className="exercises-list">
           {exercises.map((exercise) => (
             <li className="exercises-list__item" key={exercise.id}>
