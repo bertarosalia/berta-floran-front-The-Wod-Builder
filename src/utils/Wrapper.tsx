@@ -1,6 +1,6 @@
 import { Provider } from "react-redux";
 import { ThemeProvider } from "styled-components";
-import { store } from "../features/store/store";
+import { store } from "../app/store";
 import { BrowserRouter } from "react-router-dom";
 import styledMainTheme from "../styledMainTheme";
 

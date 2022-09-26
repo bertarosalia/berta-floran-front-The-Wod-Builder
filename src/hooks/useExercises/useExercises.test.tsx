@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { deleteExerciseActionCreator } from "../../features/store/exercises/exercisesSlice";
-import { store } from "../../features/store/store";
+import { store } from "../../app/store";
 import { showLoaderActionCreator } from "../../features/store/UI/UISlice";
 import useExercises from "../useExercises/useExercises";
 
