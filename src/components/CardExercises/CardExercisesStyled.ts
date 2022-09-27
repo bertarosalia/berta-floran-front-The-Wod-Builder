@@ -9,7 +9,6 @@ const CardExercisesStyled = styled.div`
     border-radius: 20px;
     background-color: ${styledMainTheme.background};
     margin: 40px;
-    padding-right: 20px;
   }
 
   .card__image {
@@ -18,11 +17,13 @@ const CardExercisesStyled = styled.div`
     height: 200px;
     border-radius: 10px;
     margin-left: 30px;
-    cursor: pointer;
-    &:hover {
-      width: 205px;
-      height: 205px;
-      margin-right: -5px;
+    @media (min-width: 700px) {
+      cursor: pointer;
+      &:hover {
+        width: 205px;
+        height: 205px;
+        margin-right: -5px;
+      }
     }
   }
 
@@ -47,11 +48,12 @@ const CardExercisesStyled = styled.div`
     padding-left: 24px;
     margin: 10px 5px;
     font-size: 20px;
-    cursor: pointer;
     text-decoration: underline;
-
-    &:hover {
-      font-weight: bold;
+    @media (min-width: 700px) {
+      cursor: pointer;
+      &:hover {
+        font-weight: bold;
+      }
     }
   }
 
@@ -60,7 +62,7 @@ const CardExercisesStyled = styled.div`
       border: none;
       outline: none;
       border-radius: 20px;
-      margin: 40px 30px;
+      margin: 30px;
       height: 40px;
       width: 90px;
       padding: 5px;
@@ -73,7 +75,6 @@ const CardExercisesStyled = styled.div`
 
       @media (min-width: 700px) {
         cursor: pointer;
-
         &:hover {
           background-color: inherit;
           outline: auto;
