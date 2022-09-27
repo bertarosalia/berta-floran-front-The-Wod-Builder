@@ -56,28 +56,6 @@ const CardExercisesStyled = styled.div`
   }
 
   .card-button {
-    &__edit {
-      border: none;
-      outline: none;
-      border-radius: 20px;
-      margin: 40px 30px;
-      height: 40px;
-      width: 90px;
-      padding: 5px;
-      text-align: center;
-      font-weight: bold;
-      font-size: 15px;
-      cursor: pointer;
-      color: ${styledMainTheme.white};
-      background-color: ${styledMainTheme.buttonEdit};
-      font-family: ${styledMainTheme.primaryFont};
-
-      &:hover {
-        background-color: inherit;
-        outline: auto;
-      }
-    }
-
     &__delete {
       border: none;
       outline: none;
@@ -92,11 +70,14 @@ const CardExercisesStyled = styled.div`
       color: ${styledMainTheme.black};
       background-color: ${styledMainTheme.buttonDelete};
       font-family: ${styledMainTheme.primaryFont};
-      cursor: pointer;
 
-      &:hover {
-        background-color: inherit;
-        outline: auto;
+      @media (min-width: 700px) {
+        cursor: pointer;
+
+        &:hover {
+          background-color: inherit;
+          outline: auto;
+        }
       }
     }
   }
