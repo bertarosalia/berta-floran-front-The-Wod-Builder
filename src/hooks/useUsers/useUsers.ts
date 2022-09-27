@@ -1,6 +1,6 @@
 import toast from "react-hot-toast";
 import { useAppDispatch } from "../../app/hooks";
-import { ProtoUser, User } from "../../features/store/users/model/user";
+import { ProtoUser, UserLogin } from "../../features/store/users/model/user";
 import { loginUserActionCreator } from "../../features/store/users/userSlice";
 import fetchToken from "../../utils/auth/auth";
 
@@ -41,7 +41,7 @@ const useUser = () => {
     successModal("Good news! The account has been successfully created!");
   };
 
-  const userLogin = async (formLoginData: User) => {
+  const userLogin = async (formLoginData: UserLogin) => {
     let response;
     try {
       response = await fetch(apiUrl + "user/login/", {
