@@ -3,17 +3,22 @@ import styledMainTheme from "../../styledMainTheme";
 
 const FooterStyled = styled.footer`
   background-color: ${styledMainTheme.navigation};
-  height: 100%;
-
+  padding: 16px;
+  gap: 16px;
+  bottom: 0;
+  @media (min-width: 700px) {
+  }
   .footer__container {
     display: flex;
-    align-content: space-between;
-    justify-content: space-around;
-    gap: 16px;
-    @media (max-width: 768px) {
-      flex-direction: column;
-      align-items: center;
-      margin: 0;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+    @media (min-width: 700px) {
+      align-content: space-between;
+      justify-content: space-around;
+      gap: 16px;
+      flex-direction: row;
     }
   }
 
@@ -21,9 +26,9 @@ const FooterStyled = styled.footer`
     display: flex;
     flex-direction: column;
     font-size: 16px;
-    margin-bottom: 30px;
-    @media (max-width: 768px) {
-      margin-bottom: 0;
+    margin-bottom: 15px;
+    @media (min-width: 700px) {
+      margin-bottom: 30px;
     }
   }
 
@@ -36,10 +41,9 @@ const FooterStyled = styled.footer`
   .footer__download {
     height: 100px;
     width: 300px;
-    cursor: pointer;
-    margin: 20px;
-    @media (max-width: 768px) {
-      margin: 0;
+    @media (min-width: 700px) {
+      margin: 20;
+      cursor: pointer;
     }
   }
 
@@ -48,8 +52,9 @@ const FooterStyled = styled.footer`
     width: 40px;
     margin: 15px;
     margin-top: 45px;
-    cursor: pointer;
-    @media (max-width: 768px) {
+
+    @media (min-width: 700px) {
+      cursor: pointer;
       margin-top: 0;
     }
   }

@@ -8,14 +8,15 @@ const ListExercisesStyled = styled.main`
     padding: 0;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: flex-start;
-    &__item {
-      padding: 20px;
-      margin-bottom: 30px;
+    justify-content: center;
+    @media (min-width: 700px) {
+      justify-content: flex-start;
     }
-
-    @media (max-width: 320px) {
-      flex-direction: column;
+    &__item {
+      @media (min-width: 700px) {
+        padding: 20px;
+        margin-bottom: 30px;
+      }
     }
   }
 `;

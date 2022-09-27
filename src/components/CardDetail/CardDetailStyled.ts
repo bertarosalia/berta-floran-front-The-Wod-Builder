@@ -19,13 +19,16 @@ const CardDetailStyled = styled.div`
     align-self: flex-end;
     border: none;
     outline: none;
-    margin-top: 40px;
-    margin-right: 130px;
+    margin-top: 20px;
 
-    &:hover {
-      font-size: 18px;
-      outline: auto;
-      cursor: pointer;
+    @media (min-width: 700px) {
+      margin-right: 130px;
+      margin-top: 40px;
+      &:hover {
+        font-size: 18px;
+        outline: auto;
+        cursor: pointer;
+      }
     }
   }
 
@@ -36,11 +39,15 @@ const CardDetailStyled = styled.div`
   }
 
   .card-detail__image {
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     border-radius: 30px;
     object-fit: cover;
     margin-bottom: 20px;
+    @media (min-width: 700px) {
+      width: 250px;
+      height: 250px;
+    }
   }
 
   .card-detail__info {
@@ -49,10 +56,11 @@ const CardDetailStyled = styled.div`
     font-size: 18px;
     display: flex;
     flex-direction: column;
-    padding-left: 200px;
-    padding-right: 200px;
+    @media (min-width: 700px) {
+      padding-left: 200px;
+      padding-right: 200px;
+    }
   }
-
   .info__data {
     margin-bottom: 10px;
   }

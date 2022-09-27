@@ -7,3 +7,6 @@ body {
   font-family: "jura", sans-serif;
   background-color: #2f3e44;
 }
+html {
+  display: flex;
+}

@@ -9,7 +9,6 @@ const CardExercisesStyled = styled.div`
     border-radius: 20px;
     background-color: ${styledMainTheme.background};
     margin: 40px;
-    padding-right: 20px;
   }
 
   .card__image {
@@ -18,11 +17,13 @@ const CardExercisesStyled = styled.div`
     height: 200px;
     border-radius: 10px;
     margin-left: 30px;
-    cursor: pointer;
-    &:hover {
-      width: 205px;
-      height: 205px;
-      margin-right: -5px;
+    @media (min-width: 700px) {
+      cursor: pointer;
+      &:hover {
+        width: 205px;
+        height: 205px;
+        margin-right: -5px;
+      }
     }
   }
 
@@ -47,42 +48,21 @@ const CardExercisesStyled = styled.div`
     padding-left: 24px;
     margin: 10px 5px;
     font-size: 20px;
-    cursor: pointer;
     text-decoration: underline;
-
-    &:hover {
-      font-weight: bold;
+    @media (min-width: 700px) {
+      cursor: pointer;
+      &:hover {
+        font-weight: bold;
+      }
     }
   }
 
   .card-button {
-    &__edit {
-      border: none;
-      outline: none;
-      border-radius: 20px;
-      margin: 40px 30px;
-      height: 40px;
-      width: 90px;
-      padding: 5px;
-      text-align: center;
-      font-weight: bold;
-      font-size: 15px;
-      cursor: pointer;
-      color: ${styledMainTheme.white};
-      background-color: ${styledMainTheme.buttonEdit};
-      font-family: ${styledMainTheme.primaryFont};
-
-      &:hover {
-        background-color: inherit;
-        outline: auto;
-      }
-    }
-
     &__delete {
       border: none;
       outline: none;
       border-radius: 20px;
-      margin: 40px 30px;
+      margin: 30px;
       height: 40px;
       width: 90px;
       padding: 5px;
@@ -92,11 +72,13 @@ const CardExercisesStyled = styled.div`
       color: ${styledMainTheme.black};
       background-color: ${styledMainTheme.buttonDelete};
       font-family: ${styledMainTheme.primaryFont};
-      cursor: pointer;
 
-      &:hover {
-        background-color: inherit;
-        outline: auto;
+      @media (min-width: 700px) {
+        cursor: pointer;
+        &:hover {
+          background-color: inherit;
+          outline: auto;
+        }
       }
     }
   }
