@@ -7,34 +7,42 @@ export const NavigationStyled = styled.div`
     color: ${styledMainTheme.black};
     font-weight: bold;
     padding: 20px;
-    margin-left: 20px;
+    margin: 0px;
     font-size: 20px;
+    @media (min-width: 700px) {
+      margin: 20px;
+    }
   }
 
   .navigation-exercises {
-    height: 110px;
+    background-color: ${styledMainTheme.navigation};
+    padding: 40px;
     display: flex;
     flex-direction: row;
     list-style: none;
-    align-items: center;
-    justify-content: space-around;
-    background-color: ${styledMainTheme.navigation};
-    width: max-content;
-    @media (max-width: 320px) {
-      height: 100%;
+    @media (min-width: 700px) {
+      height: 110px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
       padding: 16px;
-      gap: 16px;
-      flex-direction: column;
     }
   }
 
   .logo__image {
-    margin-top: 20px;
+    margin: 20px;
+    @media (min-width: 700px) {
+      margin-top: 30px;
+      height: 50px;
+    }
   }
 
   .list-exercises-pages {
-    display: flex;
-    flex-direction: row;
     list-style: none;
+    @media (min-width: 700px) {
+      display: flex;
+      flex-direction: row;
+    }
   }
 `;
