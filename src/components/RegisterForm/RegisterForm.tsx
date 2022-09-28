@@ -96,7 +96,7 @@ export const RegisterForm = (): JSX.Element => {
                   required
                 />
               </div>
-              <div className="register-form__button">
+              <div className="register-form__button--container">
                 <button
                   className={`register-user__button${
                     !isFormValid ? " button-disabled" : ""
