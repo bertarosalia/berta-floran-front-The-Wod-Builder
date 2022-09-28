@@ -41,7 +41,6 @@ const CardExercises = ({
             </li>
           </ul>
           <div className="card-button">
-            <input type="button" className="card-button__edit" value="EDIT" />
             <input
               type="button"
               className="card-button__delete"
