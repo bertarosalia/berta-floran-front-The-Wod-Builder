@@ -90,7 +90,7 @@ export const handlers = [
         return res(
           ctx.status(400),
           ctx.json({
-            error: "Error creating song",
+            error: "Error creating exercise",
           })
         );
       }
