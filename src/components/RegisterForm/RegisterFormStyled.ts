@@ -17,7 +17,7 @@ const RegisterFormStyled = styled.section`
   }
 
   .register-form__input {
-    width: 800px;
+    width: 400px;
     height: 40px;
     background-color: ${styledMainTheme.inputs};
     font-family: ${styledMainTheme.primaryFont};
@@ -25,15 +25,15 @@ const RegisterFormStyled = styled.section`
     font-weight: bolder;
     border-radius: 10px;
     margin: 10px 0 30px;
-    cursor: text;
     text-align: center;
-    @media (max-width: 320px) {
-      width: 500px;
+    @media (min-width: 700px) {
+      width: 800px;
+      cursor: text;
     }
   }
 
   .register-form__input--password {
-    width: 800px;
+    width: 400px;
     height: 40px;
     background-color: ${styledMainTheme.inputs};
     font-family: ${styledMainTheme.primaryFont};
@@ -41,10 +41,10 @@ const RegisterFormStyled = styled.section`
     font-weight: bolder;
     border-radius: 10px;
     margin: 10px 0 20px;
-    cursor: text;
     text-align: center;
-    @media (max-width: 320px) {
-      width: 500px;
+    @media (min-width: 700px) {
+      width: 800px;
+      cursor: text;
     }
   }
 
@@ -65,12 +65,14 @@ const RegisterFormStyled = styled.section`
     font-size: 15px;
     font-family: ${styledMainTheme.primaryFont};
     background-color: ${styledMainTheme.buttonBig};
-    cursor: pointer;
     margin: 20px;
+    @media (min-width: 700px) {
+      cursor: pointer;
 
-    &:hover {
-      background-color: inherit;
-      outline: auto;
+      &:hover {
+        background-color: inherit;
+        outline: auto;
+      }
     }
   }
 
@@ -80,7 +82,7 @@ const RegisterFormStyled = styled.section`
     align-items: center;
   }
 
-  .register-form__button {
+  .register-form__button--container {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -88,11 +90,14 @@ const RegisterFormStyled = styled.section`
 
   .register-form__login {
     margin-bottom: 30px;
-    cursor: pointer;
     font-size: 18px;
     color: ${styledMainTheme.white};
-    &:hover {
-      font-weight: bold;
+    @media (min-width: 700px) {
+      cursor: pointer;
+
+      &:hover {
+        font-weight: bold;
+      }
     }
   }
 `;

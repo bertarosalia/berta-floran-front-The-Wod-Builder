@@ -7,6 +7,7 @@ const LoginFormStyled = styled.div`
     flex-direction: column;
     justify-content: center;
     margin: 40px;
+    align-items: center;
   }
 
   .login-form__title {
@@ -23,7 +24,7 @@ const LoginFormStyled = styled.div`
   }
 
   .login-form__input {
-    width: 800px;
+    width: 400px;
     height: 40px;
     background-color: ${styledMainTheme.inputs};
     font-family: ${styledMainTheme.primaryFont};
@@ -31,10 +32,10 @@ const LoginFormStyled = styled.div`
     font-weight: bolder;
     border-radius: 10px;
     margin: 10px 0 30px;
-    cursor: text;
     text-align: center;
-    @media (max-width: 320px) {
-      width: 500px;
+    @media (min-width: 700px) {
+      width: 800px;
+      cursor: text;
     }
   }
 
@@ -56,23 +57,28 @@ const LoginFormStyled = styled.div`
     font-size: 15px;
     font-family: ${styledMainTheme.primaryFont};
     background-color: ${styledMainTheme.buttonBig};
-    cursor: pointer;
     margin: 20px;
     margin-bottom: 40px;
+    @media (min-width: 700px) {
+      cursor: pointer;
 
-    &:hover {
-      background-color: inherit;
-      outline: auto;
+      &:hover {
+        background-color: inherit;
+        outline: auto;
+      }
     }
   }
 
   .login-form__register {
     margin-bottom: 30px;
-    cursor: pointer;
     font-size: 18px;
     color: ${styledMainTheme.white};
-    &:hover {
-      font-weight: bold;
+    @media (min-width: 700px) {
+      cursor: pointer;
+
+      &:hover {
+        font-weight: bold;
+      }
     }
   }
 `;
