@@ -7,6 +7,7 @@ const FooterStyled = styled.footer`
   gap: 16px;
   bottom: 0;
   @media (min-width: 700px) {
+    width: 100vw;
   }
   .footer__container {
     display: flex;
@@ -14,6 +15,7 @@ const FooterStyled = styled.footer`
     align-items: center;
     margin: 0;
     padding: 20px;
+    width: 100%;
     @media (min-width: 700px) {
       align-content: space-between;
       justify-content: space-around;
