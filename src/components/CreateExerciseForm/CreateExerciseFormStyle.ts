@@ -17,7 +17,7 @@ const CreateExerciseFormStyle = styled.div`
   }
 
   .create-form__input {
-    width: 800px;
+    width: 400px;
     height: 40px;
     background-color: ${styledMainTheme.inputs};
     font-family: ${styledMainTheme.primaryFont};
@@ -25,8 +25,11 @@ const CreateExerciseFormStyle = styled.div`
     font-weight: bolder;
     border-radius: 10px;
     margin: 10px 0 20px;
-    cursor: text;
     text-align: center;
+    @media (min-width: 700px) {
+      width: 800px;
+      cursor: text;
+    }
   }
 
   .create-form__label {
@@ -46,12 +49,14 @@ const CreateExerciseFormStyle = styled.div`
     font-size: 15px;
     font-family: ${styledMainTheme.primaryFont};
     background-color: ${styledMainTheme.buttonBig};
-    cursor: pointer;
     margin: 20px;
+    @media (min-width: 700px) {
+      cursor: pointer;
 
-    &:hover {
-      background-color: inherit;
-      outline: auto;
+      &:hover {
+        background-color: inherit;
+        outline: auto;
+      }
     }
   }
 
@@ -61,7 +66,7 @@ const CreateExerciseFormStyle = styled.div`
     align-items: center;
   }
 
-  .create-form__button {
+  .create-form__button--container {
     display: flex;
     align-items: center;
     flex-direction: column;
