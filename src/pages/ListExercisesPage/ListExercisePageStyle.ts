@@ -7,9 +7,5 @@ const ListExercisePageStyled = styled.div`
     color: ${styledMainTheme.white};
     position: relative;
   }
-  /* .exercises-list__title--container {
-    display: flex;
-    justify-content: center;
-  } */
 `;
 export default ListExercisePageStyled;
