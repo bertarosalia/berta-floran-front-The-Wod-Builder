@@ -91,7 +91,7 @@ const CreateExerciseForm = (): JSX.Element => {
                 onChange={onChangeData}
               />
             </div>
-            <div className="create-form__button">
+            <div className="create-form__button--container">
               <Button
                 classNameButton="create-exercise__button"
                 type="submit"
