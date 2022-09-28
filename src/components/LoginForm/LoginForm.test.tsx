@@ -1,10 +1,15 @@
 import { render, screen } from "@testing-library/react";
-import UserEvent from "@testing-library/user-event";
+import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
 import { store } from "../../app/store";
 import LoginForm from "./LoginForm";
 
 const mockNavigate = jest.fn();
+const mockUserLogin = jest.fn();
+
+jest.mock("../../hooks/useUsers/useUsers", () => () => ({
+  userLogin: mockUserLogin,
+}));
 
 jest.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"),
@@ -42,7 +47,7 @@ describe("Given a login form component", () => {
 
         const userEmailInput = screen.getByPlaceholderText(emailPlaceholder);
 
-        await UserEvent.type(userEmailInput, userEmailTxtInput);
+        await userEvent.type(userEmailInput, userEmailTxtInput);
 
         expect(userEmailInput).toHaveValue(userEmailTxtInput);
       });
@@ -57,7 +62,7 @@ describe("Given a login form component", () => {
 
         const passwordInput = screen.getByPlaceholderText(passwordPlaceholder);
 
-        await UserEvent.type(passwordInput, userPasswordTextInput);
+        await userEvent.type(passwordInput, userPasswordTextInput);
 
         expect(passwordInput).toHaveValue(userPasswordTextInput);
       });
@@ -73,10 +78,35 @@ describe("Given a login form component", () => {
             "Don´t have an account? SIGN UP"
           );
 
-          await UserEvent.click(navigateLink);
+          await userEvent.click(navigateLink);
 
           expect(navigateLink).toBeInTheDocument();
           await expect(mockNavigate).toHaveBeenCalled();
+        });
+        describe("When user types correctly in form and click on login button", () => {
+          test("Then it should call user login function", async () => {
+            const formData = {
+              email: userEmailTxtInput,
+              password: userPasswordTextInput,
+            };
+
+            render(
+              <Provider store={store}>
+                <LoginForm />
+              </Provider>
+            );
+            const button = screen.getByRole("button", { name: "LOGIN" });
+            const userEmailInput =
+              screen.getByPlaceholderText(emailPlaceholder);
+            const passwordInput =
+              screen.getByPlaceholderText(passwordPlaceholder);
+
+            await userEvent.type(userEmailInput, userEmailTxtInput);
+            await userEvent.type(passwordInput, userPasswordTextInput);
+            await userEvent.click(button);
+
+            expect(mockUserLogin).toHaveBeenCalledWith(formData);
+          });
         });
       });
     });
