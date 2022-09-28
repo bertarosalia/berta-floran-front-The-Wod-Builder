@@ -26,7 +26,6 @@ const LoginForm = () => {
 
   const isFormValid =
     formData.email.length > minLength && formData.password.length > minLength;
-
   const navigate = useNavigate();
 
   const registerRedirect = () => {
@@ -54,7 +53,7 @@ const LoginForm = () => {
             <div>
               <input
                 className="login-form__input"
-                type={"text"}
+                type={"password"}
                 value={formData.password}
                 name="password"
                 placeholder="Password"
