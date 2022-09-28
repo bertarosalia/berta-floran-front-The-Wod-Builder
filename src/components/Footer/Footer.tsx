@@ -6,9 +6,9 @@ const Footer = (): JSX.Element => {
       <div className="footer__container">
         <div className="footer__contact">
           <h2 className="footer__contact--details">{"Contact:"}</h2>
-          <span className="footer__contact--details">{"657641257"}</span>
+          <span className="footer__contact--details">{"000000000"}</span>
           <span className="footer__contact--details">
-            {"Napoles Street, 260."}
+            {"Napoles Street, 00."}
           </span>
           <span className="footer__contact--details">
             {"Barcelona (Spain)"}
