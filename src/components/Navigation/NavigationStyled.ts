@@ -7,7 +7,6 @@ export const NavigationStyled = styled.div`
     color: ${styledMainTheme.black};
     font-weight: bold;
     padding: 20px;
-    margin: 0px;
     font-size: 20px;
     @media (min-width: 700px) {
       margin: 20px;
@@ -44,5 +43,8 @@ export const NavigationStyled = styled.div`
       display: flex;
       flex-direction: row;
     }
+  }
+  .list-exercises-pages_item {
+    margin-bottom: 10px;
   }
 `;
