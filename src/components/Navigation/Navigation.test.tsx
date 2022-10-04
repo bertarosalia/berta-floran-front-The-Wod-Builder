@@ -15,33 +15,33 @@ describe("Given the Navigation component", () => {
       expect(navTest).toBeInTheDocument();
     });
 
-    test("Then it should show 'Exercises' text inside nav bar", () => {
-      const text = "Exercises";
+    test("Then it should show an image inside nav bar", () => {
+      const imageName = "The Wod Builder Logo";
 
       render(
         <BrowserRouter>
           <Navigation />
         </BrowserRouter>
       );
-      const navLogo = screen.getByRole("link", {
-        name: text,
+      const navImage = screen.getByRole("img", {
+        name: imageName,
       });
 
-      expect(navLogo).toBeInTheDocument();
+      expect(navImage).toBeInTheDocument();
     });
-    test("Then it should show 'Sign up' text inside nav bar", () => {
-      const text = "Sign up";
+    test("Then it should show a button inside nav bar", () => {
+      const buttonName = "Open Menu";
 
       render(
         <BrowserRouter>
           <Navigation />
         </BrowserRouter>
       );
-      const navLink = screen.getByRole("link", {
-        name: text,
+      const navButton = screen.getByRole("button", {
+        name: buttonName,
       });
 
-      expect(navLink).toBeInTheDocument();
+      expect(navButton).toBeInTheDocument();
     });
   });
 });
