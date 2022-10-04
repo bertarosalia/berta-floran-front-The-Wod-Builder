@@ -8,6 +8,7 @@ const styledMainTheme = {
   white: "#FFF",
   black: "#000",
   primaryFont: "'jura', sans-serif",
+  sideBar: "#F5F5F5",
 };
 
 export default styledMainTheme;
