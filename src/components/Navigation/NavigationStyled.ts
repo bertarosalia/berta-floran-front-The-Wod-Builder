@@ -3,48 +3,63 @@ import styled from "styled-components";
 
 export const NavigationStyled = styled.div`
   .nav-links {
-    text-decoration: none;
-    color: ${styledMainTheme.black};
-    font-weight: bold;
-    padding: 20px;
-    font-size: 20px;
+    visibility: hidden;
     @media (min-width: 700px) {
-      margin: 20px;
+      visibility: visible;
+      margin: 10px;
+      text-decoration: none;
+      color: ${styledMainTheme.black};
+      font-weight: bold;
+      padding: 20px;
+      font-size: 20px;
     }
   }
 
   .navigation-exercises {
-    background-color: ${styledMainTheme.navigation};
-    padding: 40px;
+    background-color: ${styledMainTheme.background};
     display: flex;
-    flex-direction: row;
-    list-style: none;
+    flex-direction: row-reverse;
+    align-items: center;
     @media (min-width: 700px) {
+      list-style: none;
+      background-color: ${styledMainTheme.navigation};
       height: 110px;
       display: flex;
       flex-direction: row;
-      align-items: center;
       justify-content: space-around;
-      padding: 16px;
+      padding: 10px;
     }
   }
 
-  .logo__image {
-    margin: 20px;
+  .logo__image--desktop {
+    visibility: hidden;
     @media (min-width: 700px) {
+      visibility: visible;
       margin-top: 30px;
       height: 50px;
+      margin: 20px;
+    }
+  }
+
+  .logo__image--mobile {
+    visibility: visible;
+    @media (min-width: 700px) {
+      visibility: hidden;
     }
   }
 
   .list-exercises-pages {
-    list-style: none;
+    visibility: hidden;
     @media (min-width: 700px) {
       display: flex;
       flex-direction: row;
+      list-style: none;
     }
   }
   .list-exercises-pages_item {
-    margin-bottom: 10px;
+    visibility: hidden;
+    @media (min-width: 700px) {
+      margin-bottom: 10px;
+    }
   }
 `;
