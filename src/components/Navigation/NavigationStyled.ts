@@ -10,7 +10,7 @@ export const NavigationStyled = styled.div`
       text-decoration: none;
       color: ${styledMainTheme.black};
       font-weight: bold;
-      padding: 20px;
+      padding: 10px;
       font-size: 20px;
     }
   }
