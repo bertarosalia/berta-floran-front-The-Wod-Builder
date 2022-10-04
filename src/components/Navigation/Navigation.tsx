@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import Menu from "../Menu/Menu";
 import { NavigationStyled } from "./NavigationStyled";
 
 const Navigation = (): JSX.Element => {
@@ -6,8 +7,13 @@ const Navigation = (): JSX.Element => {
     <NavigationStyled>
       <nav className="navigation-exercises">
         <img
-          className="logo__image"
+          className="logo__image--desktop"
           src="img/TheWodBuilderLogoNegro.svg"
+          alt="The Wod Builder Logo "
+        />
+        <img
+          className="logo__image--mobile"
+          src="img/TheWodBuilderLogoBlanco.svg"
           alt="The Wod Builder Logo "
         />
         <ul className="list-exercises-pages">
@@ -36,6 +42,7 @@ const Navigation = (): JSX.Element => {
           </li>
         </ul>
       </nav>
+      <Menu />
     </NavigationStyled>
   );
 };
