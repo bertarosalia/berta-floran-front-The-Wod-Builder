@@ -12,8 +12,8 @@ describe("Given a Loading component", () => {
       expect(image).toBeInTheDocument();
     });
 
-    test("Then it should show text 'Cargando...'", () => {
-      const textLoading = "Cargando...";
+    test("Then it should show text 'Loading...'", () => {
+      const textLoading = "Loading...";
       render(<Loading />);
 
       const text = screen.getByText(textLoading);
