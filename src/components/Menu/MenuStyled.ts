@@ -2,9 +2,8 @@ import styled from "styled-components";
 import styledMainTheme from "../../styledMainTheme";
 
 const MenuStyled = styled.div`
-  visibility: visible;
   @media (min-width: 700px) {
-    visibility: hidden;
+    display: none;
   }
 
   /* Position and sizing of burger button */
@@ -12,7 +11,7 @@ const MenuStyled = styled.div`
     position: absolute;
     width: 66px;
     height: 43px;
-    right: -250px;
+    right: 25px;
     top: 50px;
   }
 
