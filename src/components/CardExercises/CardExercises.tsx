@@ -33,14 +33,14 @@ const CardExercises = ({
             alt={name}
             onClick={detailExercise}
           />
-          <ul className="card__info" key={id}>
-            <li className="info__data">Name: {name}</li>
-            <li className="info__data">Body: {body}</li>
-            <li className="info__data--description" onClick={detailExercise}>
-              Description: Read More
-            </li>
-          </ul>
-          <div className="card-button">
+          <div className="container-mobile">
+            <ul className="card__info" key={id}>
+              <li className="info__data">Name: {name}</li>
+              <li className="info__data">Body: {body}</li>
+              <li className="info__data--description" onClick={detailExercise}>
+                Description: Read More
+              </li>
+            </ul>
             <input
               type="button"
               className="card-button__delete"
