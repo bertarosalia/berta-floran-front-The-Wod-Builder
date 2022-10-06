@@ -2,13 +2,13 @@ import styled from "styled-components";
 import styledMainTheme from "../../styledMainTheme";
 const CardExercisesStyled = styled.div`
   .card__container {
-    width: 500px;
-    height: 300px;
     display: flex;
     align-items: center;
-    border-radius: 20px;
     background-color: ${styledMainTheme.background};
-    margin: 40px;
+    margin-bottom: 60px;
+    @media (min-width: 700px) {
+      margin: 40px;
+    }
   }
 
   .card__image {
@@ -16,7 +16,7 @@ const CardExercisesStyled = styled.div`
     width: 200px;
     height: 200px;
     border-radius: 10px;
-    margin-left: 30px;
+    margin-left: 0;
     @media (min-width: 700px) {
       cursor: pointer;
       &:hover {
@@ -31,7 +31,6 @@ const CardExercisesStyled = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 100%;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -62,7 +61,8 @@ const CardExercisesStyled = styled.div`
       border: none;
       outline: none;
       border-radius: 20px;
-      margin: 30px;
+      margin-left: 30px;
+      margin-top: 20px;
       height: 40px;
       width: 90px;
       padding: 5px;
