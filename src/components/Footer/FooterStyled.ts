@@ -3,19 +3,11 @@ import styledMainTheme from "../../styledMainTheme";
 
 const FooterStyled = styled.footer`
   background-color: ${styledMainTheme.navigation};
-  padding: 16px;
-  gap: 16px;
-  bottom: 0;
-  @media (min-width: 700px) {
-    width: 100vw;
-  }
+
   .footer__container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0;
-    padding: 20px;
-    width: 100%;
     @media (min-width: 700px) {
       align-content: space-between;
       justify-content: space-around;
