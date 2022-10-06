@@ -5,7 +5,7 @@ const Loading = (): JSX.Element => {
     <>
       <LoadingStyled>
         <img src="img/loading.gif" alt="loading..." />
-        <span>Cargando...</span>
+        <span>Loading...</span>
       </LoadingStyled>
     </>
   );
