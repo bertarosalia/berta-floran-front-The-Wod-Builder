@@ -14,23 +14,25 @@ import LoginFormPage from "./pages/LoginFormPage/LoginFormPage";
 function App() {
   const { isLoadingShowing } = useAppSelector((state) => state.ui);
   return (
-    <>
+    <div className="container">
       {isLoadingShowing && <Loading />}
       <Toaster position="bottom-center" />
 
       <Navigation />
-      <Routes>
-        <Route path="/" element={<Navigate to="/exercises" />} />
-        <Route path="/exercises" element={<ListExercisesPage />} />
-        <Route path="*" element={<NotFoundPage />} />
-        <Route path="/not-found-error" element={<NotFoundPage />} />
-        <Route path="/detail/:id" element={<CardDetailPage />} />
-        <Route path="/create-exercise" element={<CreateExerciseFormPage />} />
-        <Route path="/sign-up" element={<RegisterFormPage />} />
-        <Route path="/login" element={<LoginFormPage />} />
-      </Routes>
+      <div className="main-content">
+        <Routes>
+          <Route path="/" element={<Navigate to="/exercises" />} />
+          <Route path="/exercises" element={<ListExercisesPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+          <Route path="/not-found-error" element={<NotFoundPage />} />
+          <Route path="/detail/:id" element={<CardDetailPage />} />
+          <Route path="/create-exercise" element={<CreateExerciseFormPage />} />
+          <Route path="/sign-up" element={<RegisterFormPage />} />
+          <Route path="/login" element={<LoginFormPage />} />
+        </Routes>
+      </div>
       <Footer />
-    </>
+    </div>
   );
 }
 
