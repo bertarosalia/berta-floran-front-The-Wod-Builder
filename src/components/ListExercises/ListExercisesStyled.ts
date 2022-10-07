@@ -10,6 +10,7 @@ const ListExercisesStyled = styled.main`
     justify-content: center;
     @media (min-width: 700px) {
       justify-content: flex-start;
+      margin-left: 50px;
     }
     &__item {
       @media (min-width: 700px) {
