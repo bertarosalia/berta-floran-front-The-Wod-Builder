@@ -4,6 +4,8 @@ Netlify: https://berta-floran-the-wod-builder-front.netlify.app/exercises
 
 Figma: https://www.figma.com/file/2y1LxZQNIrfT5O7F1VWkiK/Berta-Floran%2FThe-Wod-Builder?node-id=0%3A1
 
+![The-Wod-Builder](https://user-images.githubusercontent.com/105373333/194772599-31810f2a-790e-4247-8c79-1af8f31560f4.gif)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
 
 ## Available Scripts
@@ -49,5 +51,5 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-![The-Wod-Builder](https://user-images.githubusercontent.com/105373333/194772599-31810f2a-790e-4247-8c79-1af8f31560f4.gif)
+
 
