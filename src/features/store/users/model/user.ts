@@ -9,7 +9,7 @@ export interface User {
   email: string;
 }
 
-export interface userLoginState {
+export interface UserLoginState {
   isLogged: boolean;
   user: {
     email: string;

@@ -1,10 +1,10 @@
-import { userLoginState } from "./model/user";
+import { UserLoginState } from "./model/user";
 import { userReducer } from "./userSlice";
 
 describe("Given a user reducer function", () => {
   describe("When it´s invoked with login user and an invalid state or action", () => {
     test("Then it should return the initial state", () => {
-      const previousUserState: userLoginState = {
+      const previousUserState: UserLoginState = {
         isLogged: false,
         user: {
           email: "",
@@ -20,7 +20,7 @@ describe("Given a user reducer function", () => {
   });
   describe("When it´s called with previousUserState and action login user", () => {
     test("Then it should return the property isLogged true with user data", () => {
-      const previousUserState: userLoginState = {
+      const previousUserState: UserLoginState = {
         isLogged: false,
         user: {
           email: "",
@@ -31,7 +31,7 @@ describe("Given a user reducer function", () => {
         payload: { email: "manuela@manuela.com" },
       };
 
-      const newStateExpected: userLoginState = {
+      const newStateExpected: UserLoginState = {
         isLogged: true,
         user: { email: "manuela@manuela.com" },
       };
@@ -43,7 +43,7 @@ describe("Given a user reducer function", () => {
   });
   describe("Whe it´s called logout user reducer with previousState and action logout user", () => {
     test("Then it should return the initial state", () => {
-      const previousUserState: userLoginState = {
+      const previousUserState: UserLoginState = {
         isLogged: true,
         user: {
           email: "manuela@manuela.com",
@@ -52,7 +52,7 @@ describe("Given a user reducer function", () => {
       const userPayload = {
         type: "user/logoutUser",
       };
-      const newStateExpected: userLoginState = {
+      const newStateExpected: UserLoginState = {
         isLogged: false,
         user: {
           email: "",

@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { User, userLoginState } from "./model/user";
+import { User, UserLoginState } from "./model/user";
 
-const userInitialState: userLoginState = {
+const userInitialState: UserLoginState = {
   isLogged: false,
   user: {
     email: "",
@@ -12,11 +12,11 @@ const userSlice = createSlice({
   name: "user",
   initialState: userInitialState,
   reducers: {
-    loginUser: (_previousUI: userLoginState, action: PayloadAction<User>) => ({
+    loginUser: (_previousUI: UserLoginState, action: PayloadAction<User>) => ({
       isLogged: true,
       user: { ...action.payload },
     }),
-    logoutUser: (_previousUI: userLoginState) => ({ ...userInitialState }),
+    logoutUser: (_previousUI: UserLoginState) => ({ ...userInitialState }),
   },
 });
 

@@ -29,13 +29,6 @@ interface WrapperProps {
 }
 let Wrapper: ({ children }: WrapperProps) => JSX.Element;
 
-// Wrapper = ({ children }: WrapperProps): JSX.Element => {
-//   return (
-//     <Provider store={store}>
-//       <BrowserRouter>{children}</BrowserRouter>
-//     </Provider>
-//   );
-// };
 describe("Given the use users custom hook", () => {
   beforeEach(() => {
     user = {
