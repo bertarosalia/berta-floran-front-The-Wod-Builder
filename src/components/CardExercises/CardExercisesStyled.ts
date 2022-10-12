@@ -16,13 +16,11 @@ const CardExercisesStyled = styled.div`
     width: 200px;
     height: 200px;
     border-radius: 10px;
-    margin-left: 0;
+    margin-left: 5;
     @media (min-width: 700px) {
       cursor: pointer;
       &:hover {
-        width: 205px;
-        height: 205px;
-        margin-right: -5px;
+        outline: auto;
       }
     }
   }
