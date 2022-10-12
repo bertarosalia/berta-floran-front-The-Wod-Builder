@@ -12,6 +12,7 @@ const CreateExerciseForm = (): JSX.Element => {
   };
 
   const { createExercise } = useExercises();
+  const { getAllExercises } = useExercises();
 
   const [newExercise, setFormData] = useState(initialState);
 
@@ -25,6 +26,7 @@ const CreateExerciseForm = (): JSX.Element => {
     event.preventDefault();
     await createExercise(newExercise);
     setFormData(initialState);
+    getAllExercises();
   };
 
   return (
