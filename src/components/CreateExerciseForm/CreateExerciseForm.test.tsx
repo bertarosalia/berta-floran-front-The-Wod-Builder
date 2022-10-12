@@ -8,9 +8,11 @@ import userEvent from "@testing-library/user-event";
 
 beforeEach(() => jest.restoreAllMocks());
 const mockCreate = jest.fn();
+const mockGetAll = jest.fn();
 
 jest.mock("../../hooks/useExercises/useExercises", () => () => ({
   createExercise: mockCreate,
+  getAllExercises: mockGetAll,
 }));
 
 describe("Given a create exercise form component", () => {
@@ -80,6 +82,7 @@ describe("Given a create exercise form component", () => {
       await userEvent.click(button);
 
       expect(mockCreate).toHaveBeenCalled();
+      expect(mockGetAll).toHaveBeenCalled();
     });
   });
 });
