@@ -36,11 +36,9 @@ const CreateExerciseForm = (): JSX.Element => {
           <h1 className="create-form__title">Let´s train!</h1>
           <form onSubmit={createNewExercise}>
             <div className="create-form__label--container">
-              <label htmlFor="name" className="create-form__label">
-                Name
-              </label>
               <input
                 className="create-form__input"
+                placeholder="Name"
                 type="text"
                 id="name"
                 required
@@ -50,11 +48,9 @@ const CreateExerciseForm = (): JSX.Element => {
               />
             </div>
             <div className="create-form__label--container">
-              <label htmlFor="body" className="create-form__label">
-                Body
-              </label>
               <input
                 className="create-form__input"
+                placeholder="Body"
                 type="text"
                 id="body"
                 required
@@ -64,11 +60,9 @@ const CreateExerciseForm = (): JSX.Element => {
               />
             </div>
             <div className="create-form__label--container">
-              <label htmlFor="description" className="create-form__label">
-                Description
-              </label>
               <input
                 className="create-form__input"
+                placeholder="Description"
                 type="text"
                 id="description"
                 minLength={20}
@@ -79,15 +73,12 @@ const CreateExerciseForm = (): JSX.Element => {
               />
             </div>
             <div className="create-form__label--container">
-              <label htmlFor="image" className="create-form__label">
-                Image
-              </label>
               <input
                 className="create-form__input"
                 type="text"
                 id="image"
                 required
-                placeholder="insert an url"
+                placeholder="Insert an url"
                 autoComplete="off"
                 value={newExercise.image}
                 onChange={onChangeData}
