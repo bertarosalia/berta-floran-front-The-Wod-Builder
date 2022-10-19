@@ -17,7 +17,7 @@ jest.mock("../../hooks/useExercises/useExercises", () => () => ({
 
 describe("Given a create exercise form component", () => {
   describe("When instantiated", () => {
-    test("Then it should display a form with four inputs and its labels", () => {
+    test("Then it should display a form with four inputs and its placeholders", () => {
       render(
         <Provider store={store}>
           <BrowserRouter>
@@ -27,10 +27,10 @@ describe("Given a create exercise form component", () => {
       );
 
       const elements = [
-        screen.getByLabelText("Name"),
-        screen.getByLabelText("Body"),
-        screen.getByLabelText("Description"),
-        screen.getByLabelText("Image"),
+        screen.getByPlaceholderText("Name"),
+        screen.getByPlaceholderText("Body"),
+        screen.getByPlaceholderText("Description"),
+        screen.getByPlaceholderText("Insert an url"),
       ];
 
       elements.forEach((element) => expect(element).toBeInTheDocument());
@@ -69,10 +69,10 @@ describe("Given a create exercise form component", () => {
         </Provider>
       );
 
-      const resultName = screen.getByLabelText("Name");
-      const resultBody = screen.getByLabelText("Body");
-      const resultDescription = screen.getByLabelText("Description");
-      const resultImage = screen.getByLabelText("Image");
+      const resultName = screen.getByPlaceholderText("Name");
+      const resultBody = screen.getByPlaceholderText("Body");
+      const resultDescription = screen.getByPlaceholderText("Description");
+      const resultImage = screen.getByPlaceholderText("Insert an url");
       const button = screen.getByRole("button", { name: textButton });
 
       await userEvent.type(resultName, name);
