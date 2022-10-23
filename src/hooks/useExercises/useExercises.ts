@@ -79,7 +79,7 @@ const useExercises = () => {
       dispatch(createExerciseActionCreator(exercise));
     } catch (error) {
       errorModal(
-        "Uh, no! You need to take action! Exercise has not been deleted successfully! Try again!"
+        "Uh, no! You need to take action! Exercise has not been created successfully! Try again!"
       );
     }
   };

@@ -3,14 +3,19 @@ import { act } from "react-dom/test-utils";
 import toast from "react-hot-toast";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import { deleteExerciseActionCreator } from "../../features/store/exercises/exercisesSlice";
+import {
+  deleteExerciseActionCreator,
+  loadAllExercisesactionCreator,
+} from "../../features/store/exercises/exercisesSlice";
 import { store } from "../../app/store";
 import { showLoaderActionCreator } from "../../features/store/UI/UISlice";
-import useExercises from "../useExercises/useExercises";
+import useExercises from "./useExercises";
+import { ExerciseFromDB } from "../../features/store/exercises/model/exercises";
 
 interface WrapperProps {
   children: JSX.Element | JSX.Element[];
 }
+
 let Wrapper: ({ children }: WrapperProps) => JSX.Element;
 
 Wrapper = ({ children }: WrapperProps): JSX.Element => {
@@ -24,19 +29,11 @@ Wrapper = ({ children }: WrapperProps): JSX.Element => {
 jest.mock("react-hot-toast");
 
 const mockDispatch = jest.fn();
-const mockNavigate = jest.fn();
 
 jest.mock("react-redux", () => ({
   ...jest.requireActual("react-redux"),
   useDispatch: () => mockDispatch,
 }));
-
-jest.mock("react-router-dom", () => ({
-  ...jest.requireActual("react-router-dom"),
-  useNavigate: () => mockNavigate,
-}));
-
-beforeEach(() => jest.clearAllMocks());
 
 describe("Given a useExercises hook", () => {
   const mockExerciseFormData = new FormData();
@@ -44,33 +41,39 @@ describe("Given a useExercises hook", () => {
   mockExerciseFormData.append("description", "description");
   mockExerciseFormData.append("image", "image");
   mockExerciseFormData.append("body", "body");
+  mockExerciseFormData.append("id", "id");
 
-  const exercise = mockExerciseFormData;
-  const exerciseCreated = {
-    body: "",
-    name: "",
-    description: "",
-    image: "",
-    id: "125",
+  const exerciseTest = {
+    body: "arms",
+    name: "push press",
+    description: "very great exercise",
+    image: "url",
+    id: "123",
   };
 
-  global.fetch = jest.fn().mockReturnValue({
-    json: jest.fn().mockReturnValue(exercise),
-  });
+  const mockId = "6321a224a3fa8622ce45e644";
 
-  const mockId = "125";
+  const mockWrongId = "12345";
 
   describe("When its function createExercise is called", () => {
-    test("It should send FormData passed as arguments to the DB", async () => {
-      const {
-        result: {
-          current: { createExercise },
-        },
-      } = renderHook(useExercises, { wrapper: Wrapper });
-      await waitFor(() => {
-        createExercise(exerciseCreated);
+    describe("And data is correct", () => {
+      test("It should call the success modal", async () => {
+        const {
+          result: {
+            current: { createExercise },
+          },
+        } = renderHook(useExercises, { wrapper: Wrapper });
+
+        await createExercise(exerciseTest);
+
+        await expect(toast.success).toHaveBeenCalledWith(
+          "Nothing to worry about! Exercise has been created successfully!",
+          {
+            position: "top-center",
+            duration: 5000,
+          }
+        );
       });
-      expect(global.fetch).toHaveBeenCalled();
     });
 
     describe("When it's invoked with getAllExercises method", () => {
@@ -89,75 +92,108 @@ describe("Given a useExercises hook", () => {
           expect(mockDispatch).toHaveBeenCalled();
         });
       });
-      test("Then it should send a loading modal", async () => {
-        const {
-          result: {
-            current: { getAllExercises },
-          },
-        } = renderHook(useExercises, { wrapper: Wrapper });
+    });
 
-        await act(async () => {
-          await getAllExercises();
-        });
+    test("Then it should send a loading modal", async () => {
+      const {
+        result: {
+          current: { getAllExercises },
+        },
+      } = renderHook(useExercises, { wrapper: Wrapper });
 
-        await waitFor(() => {
-          expect(mockDispatch).toHaveBeenCalledWith(showLoaderActionCreator());
-        });
+      await act(async () => {
+        await getAllExercises();
       });
 
-      describe("When it´s invoked with an invalid exercise id", () => {
-        test("Then it should not dispatch the delete action", async () => {
-          const {
-            result: {
-              current: { deleteExercise },
-            },
-          } = renderHook(useExercises);
-
-          await act(async () => {
-            await deleteExercise("wrongId");
-          });
-          await waitFor(() => {
-            expect(mockDispatch).not.toHaveBeenCalledWith(
-              deleteExerciseActionCreator(mockId)
-            );
-          });
-        });
+      await waitFor(() => {
+        expect(mockDispatch).toHaveBeenCalledWith(showLoaderActionCreator());
       });
-      test("And if it receive an error it should call the error modal", async () => {
+    });
+  });
+  test("Then dispatch must be called with action loadExercises", async () => {
+    const mockExercises: ExerciseFromDB[] = [
+      {
+        name: "snatch",
+        body: "arms",
+        description: "great exercise",
+        image: "url",
+        id: "1234",
+      },
+      {
+        name: "lungees",
+        body: "legs",
+        description: "legs die",
+        image: "url",
+        id: "1235",
+      },
+    ];
+
+    const {
+      result: {
+        current: { getAllExercises },
+      },
+    } = renderHook(useExercises);
+
+    await act(async () => {
+      getAllExercises();
+    });
+
+    await waitFor(() => {
+      expect(mockDispatch).toHaveBeenCalledWith(
+        loadAllExercisesactionCreator(mockExercises)
+      );
+    });
+  });
+
+  describe("When delete exercise is called", () => {
+    describe("When it´s invoked with an invalid exercise id", () => {
+      test("Then it should not dispatch the delete action", async () => {
         const {
           result: {
             current: { deleteExercise },
           },
-        } = renderHook(useExercises, { wrapper: Wrapper });
+        } = renderHook(useExercises);
 
-        await deleteExercise("123");
+        await act(async () => {
+          await deleteExercise(mockWrongId);
+        });
 
-        await expect(toast.error).toHaveBeenCalledWith(
-          "Uh, no! You need to take action! Something went wrong!",
-          {
-            position: "top-center",
-            duration: 5000,
-          }
-        );
-      });
-      describe("When it's invoked with getOneExerciseById", () => {
-        test("And if the id is not correct it should call the error modal", async () => {
-          const {
-            result: {
-              current: { getOneExerciseById },
-            },
-          } = renderHook(useExercises, { wrapper: Wrapper });
-
-          await getOneExerciseById("123");
-
-          await expect(toast.error).toHaveBeenCalledWith(
-            "Ups! Cannot show details from this exercise now. Try again",
-            {
-              position: "top-center",
-              duration: 5000,
-            }
+        await waitFor(() => {
+          expect(mockDispatch).not.toHaveBeenCalledWith(
+            deleteExerciseActionCreator(mockWrongId)
           );
         });
+      });
+    });
+
+    test("It should call the error modal", async () => {
+      const {
+        result: {
+          current: { deleteExercise },
+        },
+      } = renderHook(useExercises, { wrapper: Wrapper });
+
+      await deleteExercise(mockWrongId);
+
+      await expect(toast.error).toHaveBeenCalledWith(
+        "Uh, no! You need to take action! Something went wrong!",
+        {
+          position: "top-center",
+          duration: 5000,
+        }
+      );
+    });
+
+    describe("And fetch is done with exist id game", () => {
+      test("Then dispatch must be called with delete action with id mockId", async () => {
+        const { result } = renderHook(() => useExercises(), {
+          wrapper: Wrapper,
+        });
+        await result.current.deleteExercise(mockId);
+
+        expect(mockDispatch).toHaveBeenCalledWith(
+          deleteExerciseActionCreator(mockId)
+        );
       });
     });
   });
