@@ -36,10 +36,14 @@ export const NavigationStyled = styled.div`
     @media (min-width: 700px) {
       display: block;
       margin-bottom: 10px;
+      width: 220px;
+      height: 40px;
     }
   }
 
   .logo__image--mobile {
+    width: 220px;
+    height: 40px;
     @media (min-width: 700px) {
       display: none;
     }
