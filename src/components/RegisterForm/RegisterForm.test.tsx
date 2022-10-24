@@ -90,6 +90,7 @@ describe("Given the Register component", () => {
         expect(passwordRepeatInput).toHaveValue(passwordRepeatTextInput);
       });
     });
+
     describe("And user doesn´t type and click on register button", () => {
       test("Then it doesn´t call userRegister function", async () => {
         render(<RegisterForm />);
@@ -100,6 +101,7 @@ describe("Given the Register component", () => {
         expect(mockuserRegister).not.toHaveBeenCalled();
       });
     });
+
     describe("And user types correctly in form and click on register button", () => {
       test("Then it call userRegister function", async () => {
         render(<RegisterForm />);
@@ -119,6 +121,7 @@ describe("Given the Register component", () => {
 
         expect(mockuserRegister).toHaveBeenCalled();
       });
+
       describe("When it's called and clicked in the 'LOG IN' button", () => {
         test("Then it should call navigate with param '/login'", async () => {
           render(<RegisterForm />);
