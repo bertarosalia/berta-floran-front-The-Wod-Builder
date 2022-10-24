@@ -20,6 +20,7 @@ describe("Given an exercises reducer function", () => {
 
       expect(exercisesReducerReturn).toEqual(inititialStateExercises);
     });
+
     describe("When is called with a loadAllExercises action and a new exercise state", () => {
       test("Then it should return the new state with the exercises", () => {
         const newExercises: ExerciseFromDB[] = [
@@ -35,6 +36,7 @@ describe("Given an exercises reducer function", () => {
       });
     });
   });
+
   describe("When is call with a deleteExercise reducer action", () => {
     test("Then it should return a list of exercises without the exercise payload", () => {
       const exercisesBefore = [
@@ -77,6 +79,7 @@ describe("Given an exercises reducer function", () => {
 
       expect(result).toStrictEqual(exerciseAfterDeleted);
     });
+
     describe("When it´s called with the create exercise reducer action", () => {
       test("Then it should return an action with a type 'IExercise/createExercise` and an exercise as payload", () => {
         const inititialStateExercises: ExerciseFromDB[] = [];

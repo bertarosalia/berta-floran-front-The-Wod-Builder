@@ -48,7 +48,7 @@ describe("Given a useExercises hook", () => {
     name: "push press",
     description: "very great exercise",
     image: "url",
-    id: "123",
+    id: "6321a224a3fa8622ce45e644",
   };
 
   const mockId = "6321a224a3fa8622ce45e644";
