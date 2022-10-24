@@ -24,6 +24,7 @@ describe("Given the UISlicer", () => {
       expect(newUI).toStrictEqual(expectedNewUI);
     });
   });
+
   describe("When call closeLoader reducer with previousUIState", () => {
     test("Then should return same previosUIState with isLoadingShowing property to false", () => {
       const UIPayload = {
