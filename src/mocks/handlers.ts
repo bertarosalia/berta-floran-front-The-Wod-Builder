@@ -73,6 +73,7 @@ export const handlers = [
             name: "push press",
             description: "very great exercise",
             image: "url",
+            id: "6321a224a3fa8622ce45e644",
           },
         })
       );
@@ -106,7 +107,7 @@ export const handlers = [
           name: "push press",
           description: "very great exercise",
           image: "url",
-          id: "123",
+          id: "6321a224a3fa8622ce45e644",
         })
       );
     }
