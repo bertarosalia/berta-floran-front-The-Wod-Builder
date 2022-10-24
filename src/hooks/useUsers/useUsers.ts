@@ -58,9 +58,10 @@ const useUser = () => {
     } catch (error) {
       errorModal("Uh no! You are not logged yet. Try again!");
     }
-    const { userToken } = await (response as Response).json();
 
-    const user = fetchToken(userToken);
+    const { token } = await (response as Response).json();
+
+    const user = fetchToken(token);
     successModal("Let´s train!");
 
     dispatch(loginUserActionCreator(user));
