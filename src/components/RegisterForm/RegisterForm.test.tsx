@@ -21,10 +21,10 @@ describe("Given the Register component", () => {
     const emailPlaceholder = "Email";
     const passwordPlaceholder = "Password";
     const passwordRepeatPlaceholder = "Repeat password";
-    const nameTextInput = "Iván";
-    const emailTextInput = "ivan@hotmail.com";
-    const passwordTextInput = "12345";
-    const passwordRepeatTextInput = "12345";
+    const nameExampleInput = "Iván";
+    const emailExampleInput = "ivan@hotmail.com";
+    const passwordExampleInput = "12345";
+    const passwordRepeatExampleInput = "12345";
 
     test("Then should show name, email, password and password repeat inputs", () => {
       render(<RegisterForm />);
@@ -46,9 +46,9 @@ describe("Given the Register component", () => {
         render(<RegisterForm />);
 
         const nameInput = screen.getByPlaceholderText(namePlaceholder);
-        await userEvent.type(nameInput, nameTextInput);
+        await userEvent.type(nameInput, nameExampleInput);
 
-        expect(nameInput).toHaveValue(nameTextInput);
+        expect(nameInput).toHaveValue(nameExampleInput);
       });
     });
 
@@ -85,9 +85,9 @@ describe("Given the Register component", () => {
         const passwordRepeatInput = screen.getByPlaceholderText(
           passwordRepeatPlaceholder
         );
-        await userEvent.type(passwordRepeatInput, passwordRepeatTextInput);
+        await userEvent.type(passwordRepeatInput, passwordRepeatExampleInput);
 
-        expect(passwordRepeatInput).toHaveValue(passwordRepeatTextInput);
+        expect(passwordRepeatInput).toHaveValue(passwordRepeatExampleInput);
       });
     });
 
@@ -113,10 +113,10 @@ describe("Given the Register component", () => {
           passwordRepeatPlaceholder
         );
 
-        await userEvent.type(nameInput, nameTextInput);
-        await userEvent.type(emailInput, emailTextInput);
-        await userEvent.type(passwordInput, passwordTextInput);
-        await userEvent.type(passwordRepeatInput, passwordRepeatTextInput);
+        await userEvent.type(nameInput, nameExampleInput);
+        await userEvent.type(emailInput, emailExampleInput);
+        await userEvent.type(passwordInput, passwordExampleInput);
+        await userEvent.type(passwordRepeatInput, passwordRepeatExampleInput);
         await userEvent.click(button);
 
         expect(mockuserRegister).toHaveBeenCalled();
