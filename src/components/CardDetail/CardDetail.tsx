@@ -17,8 +17,7 @@ const CardDetail = ({
   id,
 }: CardExercisesProps): JSX.Element => {
   const navigate = useNavigate();
-  const backToList = (event: { stopPropagation: () => void }): void => {
-    event.stopPropagation();
+  const backToList = (): void => {
     navigate(`/exercises`);
   };
 
