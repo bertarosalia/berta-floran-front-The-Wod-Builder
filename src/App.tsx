@@ -24,7 +24,6 @@ function App() {
           <Route path="/" element={<Navigate to="/exercises" />} />
           <Route path="/exercises" element={<ListExercisesPage />} />
           <Route path="*" element={<NotFoundPage />} />
-          <Route path="/not-found-error" element={<NotFoundPage />} />
           <Route path="/detail/:id" element={<CardDetailPage />} />
           <Route path="/create-exercise" element={<CreateExerciseFormPage />} />
           <Route path="/sign-up" element={<RegisterFormPage />} />
