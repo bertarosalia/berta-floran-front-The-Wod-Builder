@@ -65,7 +65,9 @@ describe("Given a Exercises Card component", () => {
           </Provider>
         );
 
-        const iconTrash = screen.getByTestId("icon-trash");
+        const iconTrash = screen.getByRole("button", {
+          name: "DELETE",
+        });
 
         await userEvent.click(iconTrash);
 
