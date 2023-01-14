@@ -44,7 +44,6 @@ const CardExercises = ({
             <input
               type="button"
               className="card-button__delete"
-              data-testid="icon-trash"
               value="DELETE"
               onClick={() => deleteExercise(id)}
             />
